@@ -433,3 +433,14 @@ html[data-theme] body .site-header nav .header-contact:focus-visible{outline:2px
  html[data-theme] body :is(.studio-hero,.studio-contact) .studio-button,
  html[data-theme] body .site-header nav .header-contact{transition:none!important}
 }
+
+/* Continue each service colour behind its copy on mobile and tablet. */
+@media(max-width:1000px){
+ .studio-service:nth-child(1){background:#ffdd00!important}
+ .studio-service:nth-child(2){background:#ffc20e!important}
+ .studio-service:nth-child(3){background:#292929!important}
+ html body .studio-service:nth-child(-n+2) h3{color:#24211d}
+ .studio-service:nth-child(-n+2) .studio-service-summary{color:#4e451c}
+ html body .studio-service:nth-child(3) h3{color:#faf8ef}
+ .studio-service:nth-child(3) .studio-service-summary{color:#c3c0b5}
+}
