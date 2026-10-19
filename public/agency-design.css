@@ -152,3 +152,10 @@ html[data-theme=dark] .studio-hero-meta{border-color:#4e493e}
  .studio-intro-columns p{font-size:18px;line-height:1.7}
  .studio-intro-detail{font-size:16px;line-height:1.75;margin-top:24px}
 }
+/* Minimal text language switch, without clipping or segmented backgrounds. */
+html body .site-header .site-controls .studio-language{display:flex;align-items:center;gap:7px;border:0;border-radius:0;overflow:visible;max-width:none;flex-shrink:0;background:transparent;padding:0}
+html body .site-header .site-controls .studio-language:after{content:none}
+html body .site-header .site-controls .studio-language button{position:relative;display:block;min-width:28px;width:auto;max-width:none;min-height:40px;height:40px;flex:0 0 auto;padding:10px 2px;border:0;border-radius:0;background:transparent;color:var(--muted);font:500 11px/20px 'DM Sans',Arial,sans-serif;letter-spacing:.02em;overflow:visible}
+html body .site-header .site-controls .studio-language button+button:before{content:'/';position:absolute;left:-7px;top:10px;color:var(--muted);opacity:.5;font-weight:400}
+html body .site-header .site-controls .studio-language button[aria-pressed=true]{color:var(--text);font-weight:700;background:transparent}
+html body .site-header .site-controls .studio-language button[aria-pressed=true]:after{content:'';position:absolute;left:3px;right:3px;bottom:6px;height:2px;background:#ffdd00}
