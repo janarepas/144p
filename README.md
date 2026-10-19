@@ -39,3 +39,9 @@ A `public/motion.js` a jrepas.hu nyilvános animációs megoldására épül: Le
 ## Ország szerinti nyelv és megosztás
 
 A Cloudflare Pages `functions/_middleware.js` a `request.cf.country` alapján már az első HTML-válaszban magyar tartalmat ad magyarországi látogatóknak. Minden magyarországi újratöltés magyarra áll vissza, más országokban az angol az alap; a kézi váltó továbbra is működik. A szerveroldali nyelvi adatok a `public/translations-data.json` fájlban vannak; szövegmódosításkor ez és a kliensoldali `translations.js` együtt frissítendő. A megosztási kép `public/images/social-preview.png`, 1200×630 px. A HTML tartalmazza az Open Graph- és Twitter-metaadatokat is.
+
+## Videó és zene
+
+A fejléc a felhasználó által megadott `ybrYeRqn3sg` YouTube-videót kéri be a hivatalos IFrame API-val: némítva, ismételve, kezelősáv nélkül, 0.5-ös sebességgel, ha a videó engedélyezi. A YouTube saját márkajelzéseinek teljes eltüntetése nem garantálható. Sikertelen betöltésnél a meglévő állókép marad látható. Csökkentett mozgás beállításnál nincs automatikus videó. A háttérvideó a képernyőn kívül és rejtett lapon szünetel.
+
+A Zene/Music gomb a `pHWQNbVDb3Y` videót tölti be, felhasználói kattintás után. A hangerő az API-n 60%-ra van állítva. A panel bezárása szünetelteti a zenét. A tényleges lejátszás a böngésző és a YouTube beágyazási engedélyeitől függ; a saját környezet YouTube-elérését a hálózati proxy tiltja. Az API-integrációt szimulált lejátszóval ellenőriztük, tényleges YouTube-lejátszást itt nem igazoltunk.
