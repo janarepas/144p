@@ -398,3 +398,6 @@ html[data-theme] .studio-hero{background-image:url('images/creative-studio-retin
  html[data-motion] .studio-service:first-child[data-reveal=visible]:hover,.studio-service:first-child:hover{box-shadow:0 0 0 50vw #ffdd00!important}
  html[data-motion] .studio-service:last-child[data-reveal=visible]:hover,.studio-service:last-child:hover{box-shadow:0 0 0 50vw #292929!important}
 }
+/* A consistent yellow project invitation in both themes. */
+html[data-theme] body .studio-contact .studio-button{background:#ffdd00;color:#111;border-color:#ffdd00}
+html[data-theme] body .studio-contact .studio-button:hover{background:#ffc20e;border-color:#ffc20e}
