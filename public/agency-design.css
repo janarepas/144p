@@ -222,3 +222,8 @@ html[data-theme=dark] .studio-hero:before{background:linear-gradient(180deg,rgba
 @media(min-width:1001px){.studio-hero-content{padding-top:156px}.studio-hero{min-height:740px}}
 @media(max-width:1000px){.studio-hero-content{padding-top:152px}.studio-hero{padding-top:var(--mobile-menu-height,0px)}.studio-hero:before{height:calc(170px + var(--mobile-menu-height,0px))}}
 @media(max-width:760px){.studio-hero-content{padding-top:134px;padding-bottom:48px}}
+/* A light gradient-line transition replaces the flat yellow expertise band. */
+.agency-ribbon{position:relative;isolation:isolate;overflow:hidden;background:var(--bg);color:var(--text);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-top:30px;padding-bottom:30px}
+.agency-ribbon:before{content:'';position:absolute;inset:0;z-index:-1;background:url('images/gradient-lines.svg') center/cover no-repeat;opacity:.65;pointer-events:none}
+.agency-ribbon .ribbon-inner>span{background:transparent;border-color:rgba(196,160,30,.25)}
+@media(max-width:760px){.agency-ribbon{padding-top:18px;padding-bottom:18px}.agency-ribbon:before{background-size:auto 100%;background-position:58% center;opacity:.5}.agency-ribbon .ribbon-inner>span{border-color:rgba(196,160,30,.25)}}
