@@ -517,3 +517,6 @@ html[data-theme=light] footer .footer-logo.is-in-view::after{animation-play-stat
 /* Let the reflected light move more slowly across the mark in both themes. */
 html[data-theme] footer .footer-logo::after{animation-duration:14s}
 @keyframes footer-logo-glint{0%,64%{background-position:150% 0;opacity:0}68%{opacity:.65}88%{background-position:-50% 0;opacity:.65}92%,100%{background-position:-50% 0;opacity:0}}
+/* Start the slow glint as the visitor reaches the footer; restart on re-entry. */
+html[data-theme] footer .footer-logo::after{animation-name:none}
+html[data-theme] footer .footer-logo.is-in-view::after{animation-name:footer-logo-glint;animation-delay:-9s}

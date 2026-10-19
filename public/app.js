@@ -117,6 +117,6 @@ const footerMark = document.querySelector('footer .footer-logo');
 if (footerMark && 'IntersectionObserver' in window) {
  const markObserver = new IntersectionObserver(entries => {
   footerMark.classList.toggle('is-in-view', entries[0].isIntersecting);
- });
+ }, { threshold: .5 });
  markObserver.observe(footerMark);
 }
