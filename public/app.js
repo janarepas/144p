@@ -19,7 +19,37 @@ function applyTheme(dark, remember = false) {
  if (remember) { try { localStorage.setItem('144p-theme', dark ? 'dark' : 'light'); } catch {} }
 }
 applyTheme(document.documentElement.dataset.theme === 'dark');
-themeButton.addEventListener('click', () => applyTheme(document.documentElement.dataset.theme !== 'dark', true));
+async function transitionTheme() {
+ const dark = document.documentElement.dataset.theme !== 'dark';
+ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if (reduced) { applyTheme(dark, true); return; }
+ themeButton.disabled = true;
+ try {
+  // Decode the other scene before capturing the visual transition.
+  const preview = new Image();
+  preview.sizes = '100vw';
+  const variant = dark ? 'moonlight-' : '';
+  preview.srcset = [960, 1920, 3840, 6880].map(width => `/images/studio-hero-${variant}${width}.webp ${width}w`).join(', ');
+  preview.src = `/images/studio-hero-${variant}1920.webp`;
+  await Promise.race([preview.decode().catch(() => {}), new Promise(resolve => setTimeout(resolve, 2000))]);
+  if (document.startViewTransition) {
+   const transition = document.startViewTransition(() => applyTheme(dark, true));
+   await transition.finished.catch(() => {});
+  } else {
+   // Older Safari receives a short fade through darkness instead of a hard cut.
+   const curtain = document.createElement('div');
+   curtain.className = 'theme-transition-curtain';
+   curtain.setAttribute('aria-hidden', 'true');
+   document.body.append(curtain);
+   try {
+    await curtain.animate([{ opacity: 0 }, { opacity: .85 }], { duration: 200, fill: 'forwards', easing: 'ease-in' }).finished;
+    applyTheme(dark, true);
+    await curtain.animate([{ opacity: .85 }, { opacity: 0 }], { duration: 320, fill: 'forwards', easing: 'ease-out' }).finished;
+   } finally { curtain.remove(); }
+  }
+ } finally { themeButton.disabled = false; }
+}
+themeButton.addEventListener('click', transitionTheme);
 function renderArrows() {
  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
  const nodes = [];

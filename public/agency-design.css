@@ -487,3 +487,10 @@ html[data-theme=dark] .studio-hero:before{background:linear-gradient(180deg,rgba
 }
 /* A quieter footer mark on dark backgrounds, matching the reference footer. */
 html[data-theme=dark] footer .footer-logo .footer-logo-dark{opacity:.52!important}
+/* A whole-page crossfade includes photographs, colors, and typography together. */
+::view-transition-old(root){animation:theme-scene-out 550ms ease-in-out both}
+::view-transition-new(root){animation:theme-scene-in 550ms ease-in-out both;mix-blend-mode:normal}
+@keyframes theme-scene-out{to{opacity:0}}
+@keyframes theme-scene-in{from{opacity:0}to{opacity:1}}
+.theme-transition-curtain{position:fixed;inset:0;z-index:2147483647;pointer-events:none;background:#080808;opacity:0}
+@media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none}}
