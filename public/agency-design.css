@@ -1,0 +1,36 @@
+/* A separate agency composition, sharing the original colors and type. */
+html[data-theme] .hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:5%;min-height:640px;padding-top:54px;padding-bottom:58px;overflow:hidden;background:var(--bg)}
+html[data-theme] .hero:before{display:none}
+html[data-theme] .hero .hero-copy{width:100%;max-width:none;padding:34px 0}
+html[data-theme] .hero .hero-image{position:relative;inset:auto;z-index:0;width:100%;height:450px;margin:0;border-radius:28px 28px 4px 28px;background:var(--yellow-main)}
+html[data-theme] .hero .hero-image picture{display:block;height:100%;overflow:hidden;border-radius:inherit}
+html[data-theme] .hero .hero-image img{height:100%;width:100%;object-fit:cover;object-position:68% center;border-radius:inherit}
+html[data-theme] .hero h1{font-size:clamp(42px,4.7vw,72px)!important;line-height:1.1!important}
+html[data-theme] .hero-copy>.eyebrow{border-left:0;padding-left:0}
+html[data-theme] .hero-copy>.eyebrow:before{content:none}
+.agency-pixel-cluster{position:absolute;left:-14px;bottom:28px;width:22px;height:22px;background:#ffdd00;box-shadow:22px 0 #ffc20e,44px -22px #ffdd00,22px -22px #f26522,0 -44px #ffc20e,-22px 22px #f26522;z-index:3}
+.agency-image-caption{position:absolute;bottom:0;left:0;right:0;padding:15px 22px 15px 65px;background:#ffdd00;color:#24211d;border-radius:0 0 4px 28px;font:700 13px 'DM Sans',Arial,sans-serif;display:flex;justify-content:space-between;gap:12px}
+.agency-image-caption span{font-weight:400;font-size:10px;align-self:center}
+.agency-ribbon{background:#ffdd00;color:#24211d;border-top:1px solid #ebca00;border-bottom:1px solid #ebca00;padding:25px 6%}
+.ribbon-inner{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;font-family:'ivypresto-display','IvyPresto Display',Georgia,serif;font-size:clamp(21px,2.2vw,32px);font-style:italic}
+.ribbon-inner i{width:9px;height:9px;background:#f26522;flex-shrink:0;box-shadow:5px -5px #ffc20e}
+html[data-theme] #about{padding-top:80px;padding-bottom:72px}
+html[data-theme] #about .about-process>h2{text-align:left;max-width:1200px;margin-left:auto;margin-right:auto;padding-left:6%;padding-right:6%}
+html[data-theme] #about .about-body{max-width:1200px}
+.agency-team{padding-top:38px}
+.agency-person{padding:24px;border:1px solid var(--line);border-top:4px solid #ffdd00;border-radius:0 20px 20px 20px;background:var(--surface);gap:20px}
+.agency-person .agency-person-body h3{font-size:29px}
+html[data-theme] .work{background:var(--bg);padding-top:70px;padding-bottom:65px}
+.work .projects{gap:20px;max-width:1440px;margin:auto;padding:0 24px}
+.work .portfolio-card{border-radius:22px;overflow:hidden;border:1px solid var(--line)}
+.work .portfolio-card .cover-pixels{top:auto!important;bottom:24px!important;right:28px!important;left:auto!important;transform:scale(.7);transform-origin:bottom right}
+html[data-theme] .service-chooser{border-left:4px solid #ffdd00;padding:12px 20px;background:var(--surface);border-radius:0 12px 12px 0}
+html[data-theme] .about.process-section{border-top:0}
+html[data-theme] .about.process-section .process-diagram{background:var(--surface)}
+html[data-theme] .about.process-section .process-step{border:1px solid var(--line);border-bottom:4px solid #ffdd00;border-radius:18px}
+html[data-theme] .about.process-section .process-step:nth-child(2) .flow-number,html[data-theme] .about.process-section .process-step:nth-child(5) .flow-number{background:#ffc20e!important}
+html[data-theme] .contact{position:relative;overflow:hidden;border-top:8px solid #ffdd00;background:var(--bg);padding-top:72px;padding-bottom:80px}
+html[data-theme] .contact:after{display:block;content:'';position:absolute;left:5%;right:auto;bottom:40px;top:auto;width:16px;height:16px;background:#ffdd00;box-shadow:16px -16px #ffc20e,32px 0 #f26522}
+@media(min-width:1600px){html[data-theme] .hero{gap:70px;padding-left:max(6%,calc((100% - 1408px)/2));padding-right:max(6%,calc((100% - 1408px)/2))}}
+@media(max-width:1000px){html[data-theme] .hero{gap:32px;min-height:540px}.agency-image-caption{display:block;padding-left:45px}.agency-image-caption span{display:block;margin-top:5px}.agency-person{grid-template-columns:100px minmax(0,1fr)}}
+@media(max-width:700px){html[data-theme] .hero{grid-template-columns:1fr;padding-top:174px;padding-bottom:36px;gap:30px;min-height:0}html[data-theme] .hero .hero-copy{padding:0}html[data-theme] .hero h1{font-size:clamp(40px,10vw,60px)!important}html[data-theme] .hero .hero-image{height:290px;width:calc(100% - 12px);margin-left:12px;border-radius:20px}.agency-image-caption{display:flex;padding:12px 18px 12px 45px;border-radius:0 0 20px 20px;font-size:11px}.agency-image-caption span{font-size:8px;margin:0;max-width:100px}.agency-pixel-cluster{width:16px;height:16px;left:-8px;bottom:30px;box-shadow:16px 0 #ffc20e,32px -16px #ffdd00,16px -16px #f26522,0 -32px #ffc20e,-16px 16px #f26522}.agency-ribbon{padding:22px 6%}.ribbon-inner{flex-wrap:wrap;justify-content:center;gap:14px 18px;font-size:23px}.ribbon-inner i{width:6px;height:6px}.ribbon-inner i:nth-of-type(2){display:none}html[data-theme] #about{padding-top:48px;padding-bottom:48px}.agency-person{padding:20px;gap:18px;grid-template-columns:80px minmax(0,1fr)}.agency-person .agency-portrait,.agency-person .agency-portrait>img{width:80px;height:80px}.agency-person .agency-person-body h3{font-size:26px}.agency-person .agency-person-body>p:not(.agency-role){font-size:15px}.work .projects{padding:0 16px;gap:16px}.work .portfolio-card{border-radius:18px}html[data-theme] .contact:after{bottom:24px;width:10px;height:10px;box-shadow:10px -10px #ffc20e,20px 0 #f26522}}
