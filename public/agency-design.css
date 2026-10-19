@@ -465,3 +465,5 @@ html body .branding-block .branding-content{width:min(1200px,88%);max-width:1200
 html[data-theme] .studio-hero{background-image:none}
 .studio-hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-3;pointer-events:none}
 @media(max-width:1000px){.studio-hero-photo{object-position:64% center}}
+/* Match the two brand statements in measure and paragraph rhythm. */
+.branding-copy p{text-wrap:pretty}

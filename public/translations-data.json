@@ -161,10 +161,10 @@
   },
   "brandingFirst": {
     "hu": "<strong>Egységes arculat. Felismerhető megjelenés.</strong> Digitális felületeken, csomagoláson és nyomtatásban.",
-    "en": "<strong>One identity. A recognizable presence.</strong> Across digital, packaging, and print."
+    "en": "<strong>One identity. A recognizable presence.</strong> Consistent design across digital, packaging, and print."
   },
   "brandingSecond": {
-    "hu": "Tiszta vektorok, átgondolt elrendezés. <strong>Az ötlettől a kész megoldásig.</strong>",
-    "en": "Clean vectors. Considered layouts. <strong>From the first idea to the finished design.</strong>"
+    "hu": "<strong>Tiszta vektorok. Átgondolt részletek.</strong> Következetes grafika, az első ötlettől a gyártásra kész anyagig.",
+    "en": "<strong>Clean vectors. Considered details.</strong> Consistent artwork, from the first idea to production-ready files."
   }
 }
