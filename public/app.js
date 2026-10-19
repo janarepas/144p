@@ -53,6 +53,9 @@ function updateMenu() {
  menuSummary.setAttribute('aria-label', hu ? (mobileMenu.open ? 'Menü bezárása' : 'Menü megnyitása') : (mobileMenu.open ? 'Close menu' : 'Open menu'));
  menuSummary.querySelector('path').setAttribute('d', mobileMenu.open ? 'M6 6l12 12M6 18 18 6' : 'M4 7h16M4 12h16M4 17h16');
  mobileMenu.querySelector('nav').setAttribute('aria-label', hu ? 'Mobilmenü' : 'Mobile navigation');
+ const header = document.querySelector('.site-header');
+ if (mobileMenu.open) header.style.setProperty('--mobile-menu-height', `${Math.ceil(mobileMenu.querySelector('nav').getBoundingClientRect().height)}px`);
+ else header.style.removeProperty('--mobile-menu-height');
 }
 mobileMenu.addEventListener('toggle', updateMenu);
 mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));

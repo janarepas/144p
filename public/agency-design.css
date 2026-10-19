@@ -204,3 +204,12 @@ html[data-motion=true] .studio-hero-content>:nth-child(4){animation-delay:.24s}
 html[data-motion=true] .studio-hero-content>:nth-child(5){animation-delay:.32s}
 html[data-motion=true] .studio-hero-content>:nth-child(6){animation-delay:.4s}
 @media(prefers-reduced-motion:reduce){html[data-motion=true] .studio-hero-content>*{animation:none!important;filter:none;transform:none;opacity:1}html{scroll-behavior:auto!important}}
+/* Transparent navigation sits in its own clear space before the hero image. */
+html[data-theme] body .site-header{position:relative!important;top:auto!important;left:auto!important;right:auto!important;background:transparent!important;border-bottom:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;isolation:isolate;z-index:50}
+html[data-theme] body .site-header:before,html[data-theme] body .site-header:after{content:none}
+@media(min-width:1001px){.studio-hero-content{padding-top:60px}.studio-hero{min-height:650px}}
+@media(max-width:1000px){
+ html[data-theme] body .site-header{height:88px;min-height:88px}
+ html[data-theme] body .site-header:has(.studio-mobile-menu[open]){height:calc(88px + var(--mobile-menu-height,260px));min-height:calc(88px + var(--mobile-menu-height,260px));align-items:flex-start}
+ html[data-theme] body .site-header .studio-mobile-menu[open] #mobile-navigation{top:88px!important;background:transparent!important;box-shadow:none;border:0}
+}
