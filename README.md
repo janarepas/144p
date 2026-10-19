@@ -35,3 +35,7 @@ Balázs magyar és angol bemutatkozása a felhasználó által átadott LinkedIn
 ## Mozgás és elmosás
 
 A `public/motion.js` a jrepas.hu nyilvános animációs megoldására épül: Lenis 1.3.27 (`lerp: 0.1`, simított görgő, natív mobilérintés), IntersectionObserver-alapú fokozatos megjelenés és Safari-kompatibilis felső elmosás. A Lenis helyi példány és MIT-licence a `public/vendor/` könyvtárban található. Csökkentett mozgás beállításnál nincs animált görgetés vagy rejtett tartalom; JavaScript nélkül az oldal tartalma és a natív mobilmenü elérhető marad.
+
+## Ország szerinti nyelv és megosztás
+
+A Cloudflare Pages `functions/_middleware.js` a `request.cf.country` alapján már az első HTML-válaszban magyar tartalmat ad magyarországi látogatóknak. Minden magyarországi újratöltés magyarra áll vissza, más országokban az angol az alap; a kézi váltó továbbra is működik. A szerveroldali nyelvi adatok a `public/translations-data.json` fájlban vannak; szövegmódosításkor ez és a kliensoldali `translations.js` együtt frissítendő. A megosztási kép `public/images/social-preview.png`, 1200×630 px. A HTML tartalmazza az Open Graph- és Twitter-metaadatokat is.

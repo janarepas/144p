@@ -42,7 +42,9 @@ function setLanguage(language, remember = false) {
 }
 let preferredLanguage;
 try { preferredLanguage = localStorage.getItem('144p-language'); } catch {}
-if (!['hu', 'en'].includes(preferredLanguage)) preferredLanguage = (navigator.language || 'hu').toLowerCase().startsWith('hu') ? 'hu' : 'en';
+// Cloudflare supplies the IP country on each HTML response. Hungary always starts in Hungarian.
+if (document.documentElement.dataset.country === 'HU') preferredLanguage = 'hu';
+else if (!['hu', 'en'].includes(preferredLanguage)) preferredLanguage = 'en';
 setLanguage(preferredLanguage);
 document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.lang, true)));
 const mobileMenu = document.querySelector('.studio-mobile-menu');
