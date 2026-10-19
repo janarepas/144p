@@ -25,3 +25,14 @@ html[data-theme=dark] .site-header .brand .agency-logo-light{display:none!import
 .agency-portrait{height:auto;min-height:176px;display:flex;align-items:center;justify-content:center;background:var(--surface);border:1px solid var(--line)}
 .agency-portrait.portrait-1{background:var(--surface)}
 .agency-portrait>img{display:block;width:100px;height:100px;object-fit:contain;border-radius:8px}
+/* Compact team profiles: actual portraits beside the biography, without empty frames. */
+.agency-team{max-width:1200px;gap:48px;padding-top:44px;padding-bottom:16px}
+.agency-person{display:grid;grid-template-columns:100px minmax(0,1fr);align-items:start;gap:24px;padding-top:24px;border-top:1px solid var(--line)}
+.agency-person .agency-portrait{display:block;min-height:0;height:100px;width:100px;border:0;border-radius:12px;background:transparent;overflow:hidden}
+.agency-person .agency-portrait>img{width:100px;height:100px;border-radius:0;object-fit:contain}
+.agency-person .agency-person-body h3{font-size:30px;line-height:1.15;margin:0 0 10px}
+.agency-person .agency-person-body .agency-role{font-size:13px;margin:0 0 16px}
+.agency-person .agency-person-body>p:not(.agency-role){font-size:16px;line-height:1.6;color:var(--muted);margin:0;max-width:34ch}
+.agency-person .agency-person-body .profile-link{font-size:14px;margin-top:16px;padding:8px 0}
+@media(max-width:950px){.agency-team{grid-template-columns:1fr;gap:28px}.agency-person .agency-person-body>p:not(.agency-role){max-width:52ch}}
+@media(max-width:420px){.agency-person{grid-template-columns:80px minmax(0,1fr);gap:18px}.agency-person .agency-portrait,.agency-person .agency-portrait>img{width:80px;height:80px}.agency-person .agency-person-body h3{font-size:27px}}
