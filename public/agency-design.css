@@ -159,3 +159,16 @@ html body .site-header .site-controls .studio-language button{position:relative;
 html body .site-header .site-controls .studio-language button+button:before{content:'/';position:absolute;left:-7px;top:10px;color:var(--muted);opacity:.5;font-weight:400}
 html body .site-header .site-controls .studio-language button[aria-pressed=true]{color:var(--text);font-weight:700;background:transparent}
 html body .site-header .site-controls .studio-language button[aria-pressed=true]:after{content:'';position:absolute;left:3px;right:3px;bottom:6px;height:2px;background:#ffdd00}
+/* Native details/summary provides touch and keyboard operation without JS initialization. */
+.studio-mobile-menu{display:none}
+html body .site-header .studio-mobile-menu summary{list-style:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.studio-mobile-menu summary::-webkit-details-marker{display:none}
+.studio-mobile-menu summary::marker{content:''}
+@media(max-width:1000px){
+ html body .site-header .studio-mobile-menu{display:block;position:static}
+ html body .site-header .studio-mobile-menu summary{display:flex;align-items:center;justify-content:center;width:40px;height:40px;color:var(--text)}
+ html body .site-header #main-navigation{display:none!important}
+ html body .site-header .studio-mobile-menu:not([open]) #mobile-navigation{display:none!important}
+ html body .site-header .studio-mobile-menu[open] #mobile-navigation{display:flex!important;position:absolute!important;flex-direction:column;align-items:stretch;top:100%!important;left:0!important;right:0!important;gap:8px!important;padding:18px 6% 24px!important;background:var(--bg);z-index:1001;box-shadow:0 12px 20px #00000010;border-bottom:1px solid var(--line)}
+ html body .site-header .studio-mobile-menu #mobile-navigation a{display:flex;justify-content:flex-start;white-space:normal;min-height:44px}
+}

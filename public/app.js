@@ -45,18 +45,19 @@ try { preferredLanguage = localStorage.getItem('144p-language'); } catch {}
 if (!['hu', 'en'].includes(preferredLanguage)) preferredLanguage = (navigator.language || 'hu').toLowerCase().startsWith('hu') ? 'hu' : 'en';
 setLanguage(preferredLanguage);
 document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.lang, true)));
-const menuButton = document.querySelector('.studio-menu-toggle');
-const mainNav = document.querySelector('#main-navigation');
-function setMenu(open) {
- menuButton.setAttribute('aria-expanded', String(open));
+const mobileMenu = document.querySelector('.studio-mobile-menu');
+const menuSummary = mobileMenu.querySelector('summary');
+function closeMenu() { mobileMenu.open = false; }
+function updateMenu() {
  const hu = document.documentElement.lang === 'hu';
- menuButton.setAttribute('aria-label', hu ? (open ? 'Menü bezárása' : 'Menü megnyitása') : (open ? 'Close menu' : 'Open menu'));
- mainNav.classList.toggle('is-open', open);
- menuButton.querySelector('path').setAttribute('d', open ? 'M6 6l12 12M6 18 18 6' : 'M4 7h16M4 12h16M4 17h16');
+ menuSummary.setAttribute('aria-label', hu ? (mobileMenu.open ? 'Menü bezárása' : 'Menü megnyitása') : (mobileMenu.open ? 'Close menu' : 'Open menu'));
+ menuSummary.querySelector('path').setAttribute('d', mobileMenu.open ? 'M6 6l12 12M6 18 18 6' : 'M4 7h16M4 12h16M4 17h16');
+ mobileMenu.querySelector('nav').setAttribute('aria-label', hu ? 'Mobilmenü' : 'Mobile navigation');
 }
-setMenu(false);
-menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
-mainNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
-document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
-document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => setMenu(false)));
-window.matchMedia('(min-width: 1001px)').addEventListener('change', () => setMenu(false));
+mobileMenu.addEventListener('toggle', updateMenu);
+mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+document.addEventListener('click', event => { if (mobileMenu.open && !mobileMenu.contains(event.target)) closeMenu(); });
+document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => { closeMenu();updateMenu(); }));
+window.addEventListener('resize', () => { if (window.innerWidth > 1000) closeMenu(); });
+updateMenu();
