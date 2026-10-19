@@ -4,3 +4,7 @@
 html[data-theme] footer .footer-logo img{opacity:1;filter:none}
 
 html[data-theme=dark] .brand,html[data-theme=dark] .footer-logo{background:#fff;border-radius:6px}html[data-theme] footer .footer-logo img{opacity:1;filter:none}
+/* One original SVG in both themes; no competing theme-specific logo selectors. */
+html[data-theme] .site-header .brand .agency-brand-image{display:block!important;width:128px;height:auto;max-width:none;opacity:1;visibility:visible;filter:none}
+html[data-theme] .footer-logo .agency-footer-image{display:block!important;width:152px;height:auto;opacity:1;visibility:visible;filter:none}
+@media(max-width:700px){html[data-theme] .site-header .brand .agency-brand-image{width:100px}}
