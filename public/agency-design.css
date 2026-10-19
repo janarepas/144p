@@ -339,3 +339,17 @@ html[data-theme=dark] .benefit-art{color:#efede5}
 /* Share the studio and support content measure across the service section. */
 html body .studio-services .studio-wrap{width:min(1200px,88%);max-width:none;margin-inline:auto}
 html body .studio-services .studio-section-heading{width:100%;margin-left:0;margin-right:0}
+/* Edge-to-edge tile color with all artwork and copy inside the reading measure. */
+@media(min-width:1001px){
+ .studio-service:first-child{box-shadow:-50vw 0 0 0 #ffdd00!important;clip-path:inset(0 0 0 -50vw)}
+ .studio-service:last-child{box-shadow:50vw 0 0 0 #292929!important;clip-path:inset(0 -50vw 0 0)}
+ .studio-service-body{padding-left:28px;padding-right:28px}
+ .studio-service:first-child .studio-service-body{padding-left:0}
+ .studio-service:last-child .studio-service-body{padding-right:0}
+}
+@media(max-width:1000px){
+ .studio-service{box-shadow:0 0 0 50vw var(--service-edge)!important;clip-path:inset(0 -50vw)}
+ .studio-service:nth-child(1){--service-edge:#ffdd00}
+ .studio-service:nth-child(2){--service-edge:#ffc20e}
+ .studio-service:nth-child(3){--service-edge:#292929}
+}
