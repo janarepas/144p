@@ -42,7 +42,7 @@ A Cloudflare Pages `functions/_middleware.js` a `request.cf.country` alapján m�
 
 ## Videó és zene
 
-A fejléc a felhasználó által megadott `ybrYeRqn3sg` YouTube-videót kéri be a hivatalos IFrame API-val: némítva, ismételve, kezelősáv nélkül, 0.5-ös sebességgel, ha a videó engedélyezi. A YouTube saját márkajelzéseinek teljes eltüntetése nem garantálható. Sikertelen betöltésnél a meglévő állókép marad látható. Csökkentett mozgás beállításnál nincs automatikus videó. A háttérvideó a képernyőn kívül és rejtett lapon szünetel.
+A fejléc a felhasználó által megadott `ybrYeRqn3sg` YouTube-videót kéri be a hivatalos IFrame API-val: némítva, ismételve, kezelősáv nélkül, 0.5-ös sebességgel, ha a videó engedélyezi. A YouTube saját márkajelzéseinek teljes eltüntetése nem garantálható. Sikertelen betöltésnél a meglévő állókép marad látható. Csökkentett mozgás beállításnál nincs automatikus videó. A háttérvideó görgetés közben folyamatosan fut; rejtett böngészőlapon szünetel. Újraindulás és pufferelés alatt a kép marad látható, a 3,5 másodperces stabil lejátszás után jelenik meg ismét.
 
 A zenelejátszó a felhasználó kérésére eltávolítva: nincs automatikus hang vagy külön zenei panel. A fejlécvideó 35%-kal a kitöltéshez szükséges méret fölé nagyítva vágja le a képszéleket; világos módban 42%, sötétben 32% fedettséggel jelenik meg. A YouTube-videó eredeti képszéleit innen nem tudtuk ellenőrizni.
 

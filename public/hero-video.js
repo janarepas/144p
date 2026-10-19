@@ -3,7 +3,6 @@ const hero = document.querySelector('.studio-hero');
 const layer = document.querySelector('.studio-video');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let player;
-let inView = true;
 let revealTimer;
 let revealStarted = false;
 function sizeVideo() {
@@ -15,9 +14,17 @@ function sizeVideo() {
 sizeVideo();
 if ('ResizeObserver' in window) new ResizeObserver(sizeVideo).observe(hero);
 else window.addEventListener('resize', sizeVideo);
+function hideVideo() {
+ clearTimeout(revealTimer);
+ revealStarted = false;
+ hero.classList.remove('video-playing');
+}
 function syncPlayback() {
  if (!player?.playVideo) return;
- if (reducedMotion.matches || document.hidden || !inView) player.pauseVideo();
+ if (reducedMotion.matches || document.hidden) {
+  hideVideo();
+  player.pauseVideo();
+ }
  else player.playVideo();
 }
 function startPlayer() {
@@ -39,21 +46,20 @@ function startPlayer() {
    },
    onStateChange(event) {
     if (event.data === window.YT.PlayerState.PLAYING) {
-     if (reducedMotion.matches || document.hidden || !inView) { event.target.pauseVideo();return; }
+     if (reducedMotion.matches || document.hidden) { event.target.pauseVideo();return; }
      if (!revealStarted) {
       revealStarted = true;
       // Keep YouTube's transient start overlay behind the poster while playback settles.
       revealTimer = window.setTimeout(() => {
-       if (!reducedMotion.matches && !document.hidden && inView && event.target.getPlayerState() === window.YT.PlayerState.PLAYING) hero.classList.add('video-playing');
+       if (!reducedMotion.matches && !document.hidden && event.target.getPlayerState() === window.YT.PlayerState.PLAYING) hero.classList.add('video-playing');
        else revealStarted = false;
       }, 3500);
      }
-    } else if (!hero.classList.contains('video-playing')) {
-     clearTimeout(revealTimer);
-     revealStarted = false;
+    } else {
+     hideVideo();
     }
    },
-   onError() { clearTimeout(revealTimer);revealStarted = false;hero.classList.remove('video-playing'); }
+   onError: hideVideo
   }
  });
 }
@@ -61,10 +67,7 @@ function loadAPI() {
  if (reducedMotion.matches) return;
  loadYouTubeAPI().then(startPlayer).catch(() => hero.classList.remove('video-playing'));
 }
-if ('IntersectionObserver' in window) new IntersectionObserver(entries => {
- inView = entries[0].isIntersecting;
- syncPlayback();
-}, { threshold: 0.01 }).observe(hero);
+// Keep playing while the visitor scrolls: resuming the iframe can flash YouTube overlays.
 document.addEventListener('visibilitychange', syncPlayback);
 reducedMotion.addEventListener('change', () => {
  hero.classList.toggle('reduce-video-motion', reducedMotion.matches);
