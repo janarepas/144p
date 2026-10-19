@@ -4,7 +4,7 @@ function updateThemeLabel() {
  const hu = document.documentElement.lang === 'hu';
  themeButton.setAttribute('aria-label', hu ? (dark ? 'Világos mód' : 'Sötét mód') : (dark ? 'Switch to light mode' : 'Switch to dark mode'));
 }
-function applyTheme(dark) {
+function applyTheme(dark, remember = false) {
  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
  const hero = document.querySelector('.studio-hero-photo');
  if (hero) {
@@ -16,9 +16,10 @@ function applyTheme(dark) {
  themeButton.setAttribute('aria-pressed', String(dark));
  themeButton.dataset.iconTheme = dark ? 'sun' : 'moon';
  updateThemeLabel();
+ if (remember) { try { localStorage.setItem('144p-theme', dark ? 'dark' : 'light'); } catch {} }
 }
 applyTheme(document.documentElement.dataset.theme === 'dark');
-themeButton.addEventListener('click', () => applyTheme(document.documentElement.dataset.theme !== 'dark'));
+themeButton.addEventListener('click', () => applyTheme(document.documentElement.dataset.theme !== 'dark', true));
 function renderArrows() {
  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
  const nodes = [];
@@ -45,13 +46,15 @@ function setLanguage(language, remember = false) {
  document.querySelector('.site-header nav').setAttribute('aria-label', lang === 'hu' ? 'Főmenü' : 'Main navigation');
  document.querySelector('.agency-ribbon').setAttribute('aria-label', lang === 'hu' ? 'Szakterületeink' : 'Our expertise');
  updateThemeLabel();renderArrows();
- if (remember) { try { localStorage.setItem('144p-language', lang); } catch {} }
+ if (remember) {
+  try { localStorage.setItem('144p-language', lang); } catch {}
+  document.cookie = `144p-language=${lang}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`;
+ }
 }
 let preferredLanguage;
 try { preferredLanguage = localStorage.getItem('144p-language'); } catch {}
-// Cloudflare supplies the IP country on each HTML response. Hungary always starts in Hungarian.
-if (document.documentElement.dataset.country === 'HU') preferredLanguage = 'hu';
-else if (!['hu', 'en'].includes(preferredLanguage)) preferredLanguage = 'en';
+// An explicit choice wins; otherwise keep Cloudflare's country-based default.
+if (!['hu', 'en'].includes(preferredLanguage)) preferredLanguage = document.documentElement.lang === 'hu' ? 'hu' : 'en';
 setLanguage(preferredLanguage);
 document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.lang, true)));
 const mobileMenu = document.querySelector('.studio-mobile-menu');

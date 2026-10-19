@@ -4,7 +4,8 @@ export async function onRequest(context) {
  const response = await context.next();
  if (!response.headers.get('content-type')?.includes('text/html')) return response;
  const country = context.request.cf?.country || '';
- const language = country === 'HU' ? 'hu' : 'en';
+ const savedLanguage = context.request.headers.get('Cookie')?.match(/(?:^|;\s*)144p-language=(hu|en)(?:;|$)/)?.[1];
+ const language = savedLanguage || (country === 'HU' ? 'hu' : 'en');
  const titles = { hu: '144p Group | Kreatív tervező- és grafikai stúdió', en: '144p Group | Creative Design & Production Studio' };
  const descriptions = {
   hu: 'Két tapasztalt tervező. Egy megbízható kreatív partner. Grafikai tervezés, digitális kreatívok, nyomtatott anyagok és gyártásra kész grafika.',
