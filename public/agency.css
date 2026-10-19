@@ -21,3 +21,7 @@ html[data-theme] .site-header .brand{background:transparent;border-radius:0;widt
 html[data-theme=light] .site-header .brand .agency-logo-dark{display:none!important}
 html[data-theme=dark] .site-header .brand .agency-logo-light{display:none!important}
 @media(max-width:700px){html[data-theme] .site-header .brand{width:100px}}
+/* Original 100px profile photos, presented at a restrained size without cropping. */
+.agency-portrait{height:auto;min-height:176px;display:flex;align-items:center;justify-content:center;background:var(--surface);border:1px solid var(--line)}
+.agency-portrait.portrait-1{background:var(--surface)}
+.agency-portrait>img{display:block;width:100px;height:100px;object-fit:contain;border-radius:8px}

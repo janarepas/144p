@@ -20,6 +20,6 @@ Az eredeti stíluslap a `public/style.css`, az agency kiegészítései a `public
 
 ## Véglegesítendő tartalom
 
-- A csapat portréi egyértelműen jelölt illusztrációk; a valódi fotók és Balázs teljes neve, személyes bemutatkozása még szükséges.
+- A csapat valódi, a felhasználó által átadott 100×100 pixeles portréi bekerültek. Nagyobb megjelenítéshez nagyobb felbontású eredeti képek szükségesek; Lengyel Balázs részletes szakmai bemutatkozása még egyeztetendő.
 - A szolgáltatáskártyák a jrepas.hu ellenőrzött kínálatát követik. Az Upwork agency oldal anti-bot védelme miatt annak teljes szolgáltatáslistája még nem ellenőrizhető; további agency szolgáltatásokhoz szükséges a pontos lista.
 - Minden agency kapcsolatfelvételi gomb a megadott Upwork profilra vezet.
