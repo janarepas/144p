@@ -390,3 +390,6 @@ html[data-theme] .studio-hero:after,html[data-theme] .studio-hero-workspace{disp
  .studio-hero-shade{background:linear-gradient(90deg,rgba(250,248,241,.9),rgba(250,248,241,.72) 32%,rgba(250,248,241,.16) 55%,transparent 72%)}
 }
 @media(max-width:1000px){html[data-theme] .studio-hero{background-position:64% center}}
+/* High-density WebP delivery, with an ultrawide Retina variant. */
+html[data-theme] .studio-hero{background-image:url('images/creative-studio-retina-3840.webp')}
+@media(min-width:1921px) and (min-resolution:1.5dppx){html[data-theme] .studio-hero{background-image:url('images/creative-studio-retina-6880.webp')}}
