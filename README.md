@@ -2,7 +2,9 @@
 
 **Low resolution. High standards.**
 
-A 144p Group kétnyelvű bemutatkozó weboldala. Lengyel Balázs és Répás János grafikai stúdiója digitális kreatívokkal, nyomtatott kiadványokkal, csomagolásgrafikával és gyártásra kész anyagokkal támogatja a márkákat.
+Két tapasztalt tervező. Egy megbízható kreatív partner.
+
+A **144p Group** Lengyel Balázs és Répás János grafikai stúdiója. Digitális kampányok, nyomtatott kiadványok, csomagolásgrafika és gyártásra kész anyagok — egy projektre vagy hosszú távú együttműködésre. Ez a kódtár a stúdió magyar és angol nyelvű weboldalát tartalmazza.
 
 [Weboldal](https://144p.hu/) · [Upwork](https://www.upwork.com/agencies/144p/) · [Répás János](https://jrepas.hu/)
 
