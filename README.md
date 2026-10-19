@@ -30,4 +30,4 @@ A csapatblokk Balázzsal kezdődik (körportré balra, szöveg jobbra), utána J
 
 A statikus HTML magyar. A `public/translations.js` tartalmazza mind a 64 kétnyelvű szövegelemet. A fejléc HU/EN gombjai azonnal váltanak; a kézi választást helyi tároló őrzi meg. Első látogatáskor magyar böngészőnyelvnél magyar, más böngészőnyelvnél angol változat jelenik meg. Nincs IP-alapú helymeghatározás vagy külső geolokációs szolgáltatás. A lapcím, leírás és akadálymentes navigációs címkék is nyelvet váltanak.
 
-Balázs LinkedIn-alapú szakmai bemutatkozása még függőben: a megadott profil lekérését a környezet hálózati proxyja 403-mal tiltja. A jelenlegi rövid szöveg nem állít ellenőrizetlen munkakört vagy munkáltatót.
+Balázs magyar és angol bemutatkozása a felhasználó által átadott LinkedIn-képernyőképek alapján készült: ALDI és PENNY grafikai tapasztalat, online és nyomtatott marketinganyagok, bannerek, retusálás és TV-szpotgrafikák.
