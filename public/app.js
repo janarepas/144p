@@ -6,6 +6,13 @@ function updateThemeLabel() {
 }
 function applyTheme(dark) {
  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+ const hero = document.querySelector('.studio-hero-photo');
+ if (hero) {
+  const variant = dark ? 'night-' : '';
+  hero.srcset = [960, 1920, 3840, 6880].map(width => `/images/studio-hero-${variant}${width}.webp ${width}w`).join(', ');
+  hero.src = `/images/studio-hero-${variant}1920.webp`;
+ }
+
  themeButton.setAttribute('aria-pressed', String(dark));
  themeButton.dataset.iconTheme = dark ? 'sun' : 'moon';
  updateThemeLabel();

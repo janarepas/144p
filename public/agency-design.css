@@ -473,3 +473,6 @@ html[data-theme] body .site-header nav .header-contact:is(:hover,:focus-visible)
 html[data-theme] body .site-header nav .header-contact::before{content:''!important;display:block!important;position:absolute;inset:0;border-radius:inherit;background:#f26522;transform:scaleY(0);transform-origin:center bottom;z-index:-1;transition:transform 220ms ease}
 html[data-theme] body .site-header nav .header-contact:is(:hover,:focus-visible)::before{transform:scaleY(1);transition:transform 360ms cubic-bezier(.2,.7,.2,1) 220ms}
 @media(prefers-reduced-motion:reduce){html[data-theme] body .site-header nav .header-contact,html[data-theme] body .site-header nav .header-contact:is(:hover,:focus-visible),html[data-theme] body .site-header nav .header-contact::before,html[data-theme] body .site-header nav .header-contact:is(:hover,:focus-visible)::before{transition:none!important}}
+/* Night photography supplies the darkness; keep the screen's own glow visible. */
+html[data-theme=dark] .studio-hero-shade{background:linear-gradient(90deg,rgba(8,8,8,.75),rgba(8,8,8,.45) 35%,rgba(8,8,8,.08) 65%,transparent)}
+html[data-theme=dark] .studio-hero:before{background:linear-gradient(180deg,rgba(8,8,8,.85),rgba(8,8,8,.3) 55%,transparent)}
