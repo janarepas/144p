@@ -514,3 +514,6 @@ html[data-theme=light] footer .footer-logo{position:relative;display:inline-bloc
 html[data-theme=light] footer .footer-logo::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.1) 45%,rgba(255,255,255,.78) 50%,rgba(255,255,255,.1) 55%,transparent 60%);background-size:300% 100%;background-position:150% 0;-webkit-mask:url('images/144p-logo-black.svg') center/contain no-repeat;mask:url('images/144p-logo-black.svg') center/contain no-repeat;animation:footer-logo-glint 9s ease-in-out infinite;animation-play-state:paused;opacity:.65}
 html[data-theme=light] footer .footer-logo.is-in-view::after{animation-play-state:running}
 @media(prefers-reduced-motion:reduce){html[data-theme=light] footer .footer-logo::after{display:none;animation:none}}
+/* Let the reflected light move more slowly across the mark in both themes. */
+html[data-theme] footer .footer-logo::after{animation-duration:14s}
+@keyframes footer-logo-glint{0%,64%{background-position:150% 0;opacity:0}68%{opacity:.65}88%{background-position:-50% 0;opacity:.65}92%,100%{background-position:-50% 0;opacity:0}}
