@@ -3,7 +3,7 @@
 
 html[data-theme] footer .footer-logo img{opacity:1;filter:none}
 
-html[data-theme=dark] .brand,html[data-theme=dark] .footer-logo{background:#fff;border-radius:6px}html[data-theme] footer .footer-logo img{opacity:1;filter:none}
+html[data-theme=dark] .brand,html[data-theme=dark] .footer-logo{background:transparent;border-radius:0}html[data-theme] footer .footer-logo img{opacity:1;filter:none}
 /* One original SVG in both themes; no competing theme-specific logo selectors. */
 html[data-theme] .site-header .brand .agency-brand-image{display:block!important;width:128px;height:auto;max-width:none;opacity:1;visibility:visible;filter:none}
 html[data-theme] .footer-logo .agency-footer-image{display:block!important;width:152px;height:auto;opacity:1;visibility:visible;filter:none}
@@ -15,3 +15,9 @@ html[data-theme=light] .footer-logo .footer-logo-light{display:block;opacity:1;f
 html[data-theme=light] .footer-logo .footer-logo-dark{display:none}
 html[data-theme=dark] .footer-logo .footer-logo-light{display:none}
 html[data-theme=dark] .footer-logo .footer-logo-dark{display:block;opacity:1;filter:none}
+
+/* Preserve the original warm accents; only the dark lettering changes to white. */
+html[data-theme] .site-header .brand{background:transparent;border-radius:0;width:128px}
+html[data-theme=light] .site-header .brand .agency-logo-dark{display:none!important}
+html[data-theme=dark] .site-header .brand .agency-logo-light{display:none!important}
+@media(max-width:700px){html[data-theme] .site-header .brand{width:100px}}
