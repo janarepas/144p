@@ -500,3 +500,6 @@ html[data-theme=dark] footer .footer-logo .footer-logo-dark{opacity:.52!importan
 @media(min-width:761px){.studio-team::after{content:'';position:absolute;left:50%;top:26px;bottom:26px;width:1px;background:var(--line);pointer-events:none}}
 /* Keep the studio introduction's line lengths visually balanced. */
 .studio-intro-columns p{text-wrap:balance}
+/* The studio slogan stays with the header mark in both languages and themes. */
+.site-header .brand-tagline{display:block;width:max-content;margin-top:5px;color:var(--muted);font:500 8px/1.3 'DM Sans',Arial,sans-serif;letter-spacing:.015em;white-space:nowrap}
+@media(max-width:1000px){.site-header .brand-tagline{font-size:6.5px;margin-top:4px}}
