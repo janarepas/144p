@@ -190,3 +190,17 @@ html body .site-header .site-controls .studio-language{gap:10px}
 html body .site-header .site-controls .studio-language button{font-size:13px;line-height:24px;min-width:30px;min-height:44px;height:44px;padding:10px 3px}
 html body .site-header .site-controls .studio-language button+button:before{left:-9px;top:10px}
 @media(max-width:760px){.studio-intro-columns p{font-size:21px}.studio-hero-description{font-size:18px}.studio-team .studio-team-bio{font-size:18px}.studio-service li{font-size:19px}.support-copy p{font-size:23px}.studio-benefits{grid-template-columns:1fr;gap:0}.studio-benefits li{font-size:20px;padding:22px 0 22px 40px}.studio-benefits li:before{top:26px}.studio-service h3{min-height:0}}
+/* Lenis handles wheel smoothing; touch scrolling remains native. */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+.lenis.lenis-smooth.lenis-scrolling iframe{pointer-events:none}
+/* Gradual first-screen entrance. Content stays visible if scripting is unavailable. */
+@keyframes studio-enter{from{opacity:0;transform:translateY(14px);filter:blur(3px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+html[data-motion=true] .studio-hero-content>*{animation:studio-enter .75s cubic-bezier(.2,.7,.2,1) both}
+html[data-motion=true] .studio-hero-content>:nth-child(2){animation-delay:.08s}
+html[data-motion=true] .studio-hero-content>:nth-child(3){animation-delay:.16s}
+html[data-motion=true] .studio-hero-content>:nth-child(4){animation-delay:.24s}
+html[data-motion=true] .studio-hero-content>:nth-child(5){animation-delay:.32s}
+html[data-motion=true] .studio-hero-content>:nth-child(6){animation-delay:.4s}
+@media(prefers-reduced-motion:reduce){html[data-motion=true] .studio-hero-content>*{animation:none!important;filter:none;transform:none;opacity:1}html{scroll-behavior:auto!important}}
