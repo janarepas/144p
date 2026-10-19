@@ -5,7 +5,8 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let player;
 let inView = true;
 function sizeVideo() {
- const width = Math.max(hero.clientWidth, hero.clientHeight * 16 / 9);
+ // Crop the letterboxed edges while keeping the video centered and responsive.
+ const width = Math.max(hero.clientWidth, hero.clientHeight * 16 / 9) * 1.35;
  layer.style.setProperty('--video-width', `${Math.ceil(width)}px`);
  layer.style.setProperty('--video-height', `${Math.ceil(width * 9 / 16)}px`);
 }

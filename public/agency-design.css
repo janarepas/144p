@@ -307,14 +307,8 @@ html[data-theme=dark] .branding-curves{opacity:.14}
 }
 @media(max-width:1000px){.studio-service-grid{gap:2px}.studio-service{margin:0}.studio-service-art{border-radius:0}}
 @media(prefers-reduced-motion:reduce){.studio-video{display:none;transition:none}}
-.studio-music{position:fixed;right:20px;bottom:20px;z-index:60;font-family:'DM Sans',Arial,sans-serif}
-.music-toggle{display:flex;align-items:center;justify-content:center;gap:8px;min-width:76px;min-height:44px;padding:10px 15px;border:1px solid var(--line);border-radius:40px;background:var(--bg);color:var(--text);font-size:12px;cursor:pointer;box-shadow:0 4px 16px #0000000a}
-#music-panel{position:absolute;right:0;bottom:56px;width:282px;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:0 0 12px;overflow:hidden;box-shadow:0 12px 36px #0002}
-#music-panel[hidden]{display:none}
-.music-panel-heading{display:flex;justify-content:space-between;align-items:center;padding:4px 12px 4px 16px;font-size:12px}
-.music-close{border:0;background:transparent;color:inherit;font-size:25px;min-width:40px;min-height:40px;cursor:pointer}
-#music-panel iframe{display:block;width:280px;height:200px;border:0}
-.music-status{font-size:12px;line-height:1.5;margin:10px 16px}
-.music-status:empty{display:none}
-.music-source{display:inline-block;font-size:11px;margin:10px 16px 0;text-decoration:underline;text-underline-offset:3px}
-@media(max-width:760px){.studio-music{right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px))}.music-toggle{padding:8px 12px;min-width:70px}}
+
+/* Reduce the background movement's visual weight without blending in the old photo. */
+.studio-hero.video-playing:not(.reduce-video-motion){background-image:none}
+.studio-hero.video-playing:not(.reduce-video-motion) .studio-video{opacity:.42}
+html[data-theme=dark] .studio-hero.video-playing:not(.reduce-video-motion) .studio-video{opacity:.32}
