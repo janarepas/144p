@@ -213,3 +213,12 @@ html[data-theme] body .site-header:before,html[data-theme] body .site-header:aft
  html[data-theme] body .site-header:has(.studio-mobile-menu[open]){height:calc(88px + var(--mobile-menu-height,260px));min-height:calc(88px + var(--mobile-menu-height,260px));align-items:flex-start}
  html[data-theme] body .site-header .studio-mobile-menu[open] #mobile-navigation{top:88px!important;background:transparent!important;box-shadow:none;border:0}
 }
+/* Contain the portrait ring inside the image box, so section clipping cannot cut it. */
+.studio-team img{outline:none;border:1.5px solid #ffc20e;padding:4px;background:var(--bg);border-radius:50%;box-sizing:border-box}
+/* Carry the hero artwork behind the transparent header, with a continuous soft fade. */
+html[data-theme] body .site-header{position:absolute!important;top:0!important;left:0!important;right:0!important;width:100%;max-width:none;margin:0;padding-left:6%;padding-right:6%}
+.studio-hero:before{content:'';position:absolute;inset:0 0 auto;height:170px;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(250,248,241,.96),rgba(250,248,241,.7) 50%,rgba(250,248,241,0))}
+html[data-theme=dark] .studio-hero:before{background:linear-gradient(180deg,rgba(8,8,8,.98),rgba(8,8,8,.75) 50%,rgba(8,8,8,0))}
+@media(min-width:1001px){.studio-hero-content{padding-top:156px}.studio-hero{min-height:740px}}
+@media(max-width:1000px){.studio-hero-content{padding-top:152px}.studio-hero{padding-top:var(--mobile-menu-height,0px)}.studio-hero:before{height:calc(170px + var(--mobile-menu-height,0px))}}
+@media(max-width:760px){.studio-hero-content{padding-top:134px;padding-bottom:48px}}
