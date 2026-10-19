@@ -227,3 +227,20 @@ html[data-theme=dark] .studio-hero:before{background:linear-gradient(180deg,rgba
 .agency-ribbon:before{content:'';position:absolute;inset:0;z-index:-1;background:url('images/gradient-lines.svg') center/cover no-repeat;opacity:.65;pointer-events:none}
 .agency-ribbon .ribbon-inner>span{background:transparent;border-color:rgba(196,160,30,.25)}
 @media(max-width:760px){.agency-ribbon{padding-top:18px;padding-bottom:18px}.agency-ribbon:before{background-size:auto 100%;background-position:58% center;opacity:.5}.agency-ribbon .ribbon-inner>span{border-color:rgba(196,160,30,.25)}}
+/* Compact service summaries: a small illustration beside one concise description. */
+.studio-service-grid{gap:18px}
+.studio-service{display:grid;grid-template-columns:88px minmax(0,1fr);border-radius:16px}
+.studio-service-art{height:100%;min-height:150px;display:flex;align-items:center;justify-content:center;padding:8px}
+.studio-service-art svg{width:100%;height:auto;max-height:100px;margin:0}
+.studio-service-body{padding:22px 18px;align-self:center}
+html body .studio-service h3{font-size:27px;line-height:1.15;min-height:0;margin:0 0 12px}
+.studio-service-summary{font-size:17px;line-height:1.55;color:var(--muted);margin:0}
+.studio-services.studio-section{padding-top:56px;padding-bottom:56px}
+.studio-support.studio-section{padding-top:52px;padding-bottom:52px}
+.studio-support-grid{gap:40px}
+html body .studio-support h2{font-size:clamp(32px,3.3vw,46px)}
+.support-copy p{font-size:21px;line-height:1.55;max-width:32ch}
+.support-blocks{gap:5px;margin-top:22px}
+.support-blocks span{width:13px;height:13px}.support-blocks span:nth-child(2){height:22px}.support-blocks span:nth-child(3){height:31px}.support-blocks span:nth-child(4){height:40px}
+@media(min-width:761px) and (max-width:1100px){.studio-service-grid{grid-template-columns:1fr}.studio-service{grid-template-columns:100px minmax(0,1fr)}.studio-service-art{min-height:120px}.studio-service-summary{max-width:100%}}
+@media(max-width:760px){.studio-service-grid{gap:14px}.studio-service{grid-template-columns:80px minmax(0,1fr);border-radius:14px}.studio-service-art{min-height:140px;padding:8px}.studio-service-body{padding:20px 18px}html body .studio-service h3{font-size:27px;margin-bottom:10px}.studio-service-summary{font-size:17px;line-height:1.5}.studio-services .studio-section-heading{margin-bottom:24px}.studio-services.studio-section{padding-top:42px;padding-bottom:42px}.studio-support.studio-section{padding-top:40px;padding-bottom:40px}.studio-support-grid{gap:22px}.support-copy p{font-size:20px;max-width:32ch}.support-blocks{display:none}.studio-support .studio-kicker{margin-bottom:18px}}
