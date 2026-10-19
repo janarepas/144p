@@ -467,3 +467,9 @@ html[data-theme] .studio-hero{background-image:none}
 @media(max-width:1000px){.studio-hero-photo{object-position:64% center}}
 /* Match the two brand statements in measure and paragraph rhythm. */
 .branding-copy p{text-wrap:pretty}
+/* Reference navigation motion: outline changes first, orange fill follows from below. */
+html[data-theme] body .site-header nav .header-contact{position:relative;isolation:isolate;overflow:hidden;transition:border-color 220ms ease,color 220ms ease!important}
+html[data-theme] body .site-header nav .header-contact:is(:hover,:focus-visible){border-color:#f26522!important;color:#111!important;transition:border-color 220ms ease,color 220ms ease 220ms!important}
+html[data-theme] body .site-header nav .header-contact::before{content:''!important;display:block!important;position:absolute;inset:0;border-radius:inherit;background:#f26522;transform:scaleY(0);transform-origin:center bottom;z-index:-1;transition:transform 220ms ease}
+html[data-theme] body .site-header nav .header-contact:is(:hover,:focus-visible)::before{transform:scaleY(1);transition:transform 360ms cubic-bezier(.2,.7,.2,1) 220ms}
+@media(prefers-reduced-motion:reduce){html[data-theme] body .site-header nav .header-contact,html[data-theme] body .site-header nav .header-contact:is(:hover,:focus-visible),html[data-theme] body .site-header nav .header-contact::before,html[data-theme] body .site-header nav .header-contact:is(:hover,:focus-visible)::before{transition:none!important}}
