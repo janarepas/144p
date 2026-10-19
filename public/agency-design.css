@@ -172,3 +172,6 @@ html body .site-header .studio-mobile-menu summary{list-style:none;cursor:pointe
  html body .site-header .studio-mobile-menu[open] #mobile-navigation{display:flex!important;position:absolute!important;flex-direction:column;align-items:stretch;top:100%!important;left:0!important;right:0!important;gap:8px!important;padding:18px 6% 24px!important;background:var(--bg);z-index:1001;box-shadow:0 12px 20px #00000010;border-bottom:1px solid var(--line)}
  html body .site-header .studio-mobile-menu #mobile-navigation a{display:flex;justify-content:flex-start;white-space:normal;min-height:44px}
 }
+/* Keep the mirrored photo position, with left-aligned copy for both founders. */
+.studio-team article:nth-child(2){text-align:left}
+.studio-team img{outline:1px solid #ffc20e;outline-offset:5px}
