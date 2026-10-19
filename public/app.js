@@ -2,9 +2,10 @@ const themeButton = document.querySelector('.theme-toggle');
 function applyTheme(dark) {
  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
  themeButton.setAttribute('aria-pressed', String(dark));
- themeButton.setAttribute('aria-label', dark ? 'Világos mód' : 'Sötét mód');
+ themeButton.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
  themeButton.dataset.iconTheme = dark ? 'sun' : 'moon';
 }
+applyTheme(document.documentElement.dataset.theme === 'dark');
 themeButton.addEventListener('click', () => applyTheme(document.documentElement.dataset.theme !== 'dark'));
 // Draw arrows as vectors so rendering does not rely on system symbol fonts.
 const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);const nodes=[];

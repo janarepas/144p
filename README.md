@@ -1,6 +1,6 @@
 # 144p Group
 
-Magyar nyelvű, reszponzív agency oldal Répás János és Balázs csapatának. A jrepas.hu eredeti stíluslapjára, arculati elemeire és helyileg tárolt képeire épül.
+Angol nyelvű, reszponzív creative design & production studio oldal Lengyel Balázs és Répás János csapatának. Az eredeti jrepas.hu arculati betűit és színeit önálló elrendezéssel, teljes szélességű stúdió-nyitóképpel használja. A szakmai tartalmat a felhasználó által megadott agency-bemutatkozás biztosítja.
 
 ## Futtatás
 
@@ -21,5 +21,7 @@ Az eredeti stíluslap a `public/style.css`, az agency kiegészítései a `public
 ## Véglegesítendő tartalom
 
 - A csapat valódi, a felhasználó által átadott 100×100 pixeles portréi bekerültek. Nagyobb megjelenítéshez nagyobb felbontású eredeti képek szükségesek; Lengyel Balázs részletes szakmai bemutatkozása még egyeztetendő.
-- A szolgáltatáskártyák a jrepas.hu ellenőrzött kínálatát követik. Az Upwork agency oldal anti-bot védelme miatt annak teljes szolgáltatáslistája még nem ellenőrizhető; további agency szolgáltatásokhoz szükséges a pontos lista.
+- A szolgáltatások, ongoing support és együttműködési előnyök a felhasználó által átadott teljes angol stúdióbemutatkozást követik. Három szolgáltatáskategória, összesen 15 felsorolt szolgáltatással.
 - Minden agency kapcsolatfelvételi gomb a megadott Upwork profilra vezet.
+
+A csapatblokk Balázzsal kezdődik (körportré balra, szöveg jobbra), utána János következik tükrözött elrendezéssel. A nyitókép generált, szöveg és szerkesztőikonok nélküli háttér; helye: `public/images/creative-studio-hero.png`.
