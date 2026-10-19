@@ -45,3 +45,18 @@ try { preferredLanguage = localStorage.getItem('144p-language'); } catch {}
 if (!['hu', 'en'].includes(preferredLanguage)) preferredLanguage = (navigator.language || 'hu').toLowerCase().startsWith('hu') ? 'hu' : 'en';
 setLanguage(preferredLanguage);
 document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.lang, true)));
+const menuButton = document.querySelector('.studio-menu-toggle');
+const mainNav = document.querySelector('#main-navigation');
+function setMenu(open) {
+ menuButton.setAttribute('aria-expanded', String(open));
+ const hu = document.documentElement.lang === 'hu';
+ menuButton.setAttribute('aria-label', hu ? (open ? 'Menü bezárása' : 'Menü megnyitása') : (open ? 'Close menu' : 'Open menu'));
+ mainNav.classList.toggle('is-open', open);
+ menuButton.querySelector('path').setAttribute('d', open ? 'M6 6l12 12M6 18 18 6' : 'M4 7h16M4 12h16M4 17h16');
+}
+setMenu(false);
+menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+mainNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
+document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => setMenu(false)));
+window.matchMedia('(min-width: 1001px)').addEventListener('change', () => setMenu(false));

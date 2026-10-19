@@ -110,3 +110,45 @@ html[data-theme=dark] .studio-hero-meta{border-color:#4e493e}
 .site-controls .studio-language button[aria-pressed=true]{background:#ffdd00;color:#111}
 @media(min-width:701px) and (max-width:1000px){html body .site-header nav{gap:12px}.site-header nav a{font-size:12px}.site-controls{gap:6px!important}}
 @media(max-width:700px){.site-controls .studio-language button{min-width:32px;min-height:32px;padding:6px 8px}.site-controls .studio-language{max-width:70px}.site-header nav a{font-size:12px}.site-header nav{gap:12px!important}}
+/* Quiet, structured expertise strip instead of oversized wrapping headline text. */
+.agency-ribbon{padding:22px 6%}
+.ribbon-inner{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;font:600 13px/1.5 'DM Sans',Arial,sans-serif;letter-spacing:.01em;text-align:center}
+.ribbon-inner>span{padding:3px 16px;font-style:normal}
+.ribbon-inner>span+span{border-left:1px solid #bfa600}
+.ribbon-inner i{display:none!important}
+.studio-menu-toggle{display:none}
+@media(max-width:1000px){
+ html body .site-header{position:relative!important;top:auto!important;left:auto!important;right:auto!important;display:flex!important;align-items:center;justify-content:space-between;height:88px;min-height:88px;padding:14px 6%;margin:0;max-width:none;width:100%;gap:16px;grid-template-rows:none;border-bottom:1px solid var(--line);background:var(--bg)!important;-webkit-backdrop-filter:none;backdrop-filter:none}
+ html[data-theme] body .site-header .brand{width:96px;margin:0;flex:0 0 96px}
+ html[data-theme] .site-header .brand .agency-brand-image{width:96px!important;height:auto}
+ html body .site-header .site-controls{display:flex;gap:8px!important;align-items:center;margin:0;position:static!important;transform:none!important}
+ html body .site-header .site-controls .theme-toggle{width:36px;min-width:36px;height:36px;min-height:36px;padding:7px;border:0;background:transparent}
+ html body .site-header .site-controls .studio-menu-toggle{display:flex;align-items:center;justify-content:center;width:36px;height:36px;min-width:36px;min-height:36px;padding:6px;border:0;border-radius:0;background:transparent;color:var(--text);cursor:pointer}
+ html body .site-header nav{display:none!important;position:absolute!important;top:100%!important;left:0!important;right:0!important;width:100%;transform:none!important;padding:18px 6% 24px;margin:0!important;z-index:100;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 12px 20px #0000000a}
+ html body .site-header nav.is-open{display:flex!important;flex-direction:column;align-items:stretch;gap:8px!important}
+ html body .site-header nav a{justify-content:flex-start;font-size:15px;padding:10px 0;min-height:44px}
+ html body .site-header nav .header-contact{justify-content:center;width:fit-content;margin-top:8px;padding:12px 22px!important}
+ .studio-hero-content{padding-top:64px;padding-bottom:56px}
+ .studio-hero{min-height:640px}
+}
+@media(max-width:760px){
+ .studio-hero{min-height:0;background-position:68% center}
+ .studio-hero-content{padding-top:46px;padding-bottom:48px}
+ .studio-hero-shade{background:linear-gradient(90deg,rgba(250,248,241,.98),rgba(250,248,241,.93) 58%,rgba(250,248,241,.76))}
+ html[data-theme=dark] .studio-hero-shade{background:linear-gradient(90deg,rgba(8,8,8,.98),rgba(8,8,8,.93) 58%,rgba(8,8,8,.8))}
+ .studio-hero .studio-kicker{font-size:10px;letter-spacing:.055em;max-width:30ch;margin-bottom:24px}
+ html body .studio-hero h1{font-size:clamp(38px,9.8vw,58px);line-height:1.12;margin-bottom:25px}
+ .studio-hero-lead{font-size:20px;line-height:1.5;margin-bottom:20px}
+ .studio-hero-description{font-size:16px;line-height:1.7;margin-bottom:28px;max-width:33ch}
+ .studio-hero-description br{display:none}
+ .studio-hero-meta{display:none}
+ .studio-hero .studio-button{padding:16px 21px;min-height:52px;font-size:11px;gap:18px}
+ .agency-ribbon{padding:20px 6%}
+ .ribbon-inner{grid-template-columns:repeat(2,minmax(0,1fr));font-size:12px;gap:0;text-align:left}
+ .ribbon-inner>span{padding:10px 12px;line-height:1.4}
+ .ribbon-inner>span:nth-of-type(odd){border-right:1px solid #bfa600;padding-left:0}
+ .ribbon-inner>span:nth-of-type(-n+2){border-bottom:1px solid #c9ae00}
+ .studio-section{padding-top:48px;padding-bottom:48px}
+ .studio-intro-columns p{font-size:18px;line-height:1.7}
+ .studio-intro-detail{font-size:16px;line-height:1.75;margin-top:24px}
+}
