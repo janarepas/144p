@@ -4,6 +4,8 @@ const layer = document.querySelector('.studio-video');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let player;
 let inView = true;
+let revealTimer;
+let revealStarted = false;
 function sizeVideo() {
  // Crop the letterboxed edges while keeping the video centered and responsive.
  const width = Math.max(hero.clientWidth, hero.clientHeight * 16 / 9) * 1.35;
@@ -37,11 +39,21 @@ function startPlayer() {
    },
    onStateChange(event) {
     if (event.data === window.YT.PlayerState.PLAYING) {
-     hero.classList.add('video-playing');
-     if (reducedMotion.matches || document.hidden || !inView) event.target.pauseVideo();
+     if (reducedMotion.matches || document.hidden || !inView) { event.target.pauseVideo();return; }
+     if (!revealStarted) {
+      revealStarted = true;
+      // Keep YouTube's transient start overlay behind the poster while playback settles.
+      revealTimer = window.setTimeout(() => {
+       if (!reducedMotion.matches && !document.hidden && inView && event.target.getPlayerState() === window.YT.PlayerState.PLAYING) hero.classList.add('video-playing');
+       else revealStarted = false;
+      }, 3500);
+     }
+    } else if (!hero.classList.contains('video-playing')) {
+     clearTimeout(revealTimer);
+     revealStarted = false;
     }
    },
-   onError() { hero.classList.remove('video-playing'); }
+   onError() { clearTimeout(revealTimer);revealStarted = false;hero.classList.remove('video-playing'); }
   }
  });
 }

@@ -45,3 +45,5 @@ A Cloudflare Pages `functions/_middleware.js` a `request.cf.country` alapján m�
 A fejléc a felhasználó által megadott `ybrYeRqn3sg` YouTube-videót kéri be a hivatalos IFrame API-val: némítva, ismételve, kezelősáv nélkül, 0.5-ös sebességgel, ha a videó engedélyezi. A YouTube saját márkajelzéseinek teljes eltüntetése nem garantálható. Sikertelen betöltésnél a meglévő állókép marad látható. Csökkentett mozgás beállításnál nincs automatikus videó. A háttérvideó a képernyőn kívül és rejtett lapon szünetel.
 
 A zenelejátszó a felhasználó kérésére eltávolítva: nincs automatikus hang vagy külön zenei panel. A fejlécvideó 35%-kal a kitöltéshez szükséges méret fölé nagyítva vágja le a képszéleket; világos módban 42%, sötétben 32% fedettséggel jelenik meg. A YouTube-videó eredeti képszéleit innen nem tudtuk ellenőrizni.
+
+A videó CRT-réteget kapott (finom pásztázóvonalak, RGB-rács, enyhe vignetta). A háttérvideó az első folyamatos PLAYING állapot után 3,5 másodperccel jelenik meg, hogy a YouTube induló felülete kevésbé villanjon fel. A beágyazás saját későbbi overlayei továbbra sem vezérelhetők teljesen a szülőoldalról.
