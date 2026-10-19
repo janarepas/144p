@@ -353,3 +353,13 @@ html body .studio-services .studio-section-heading{width:100%;margin-left:0;marg
  .studio-service:nth-child(2){--service-edge:#ffc20e}
  .studio-service:nth-child(3){--service-edge:#292929}
 }
+/* A wider view of the workspace, with separate copy and monitor zones. */
+@media(min-width:1001px){
+ .studio-hero{background-size:auto 90%;background-position:right bottom;background-color:#f7f5ee}
+ html body .studio-hero h1{max-width:56%;font-size:clamp(48px,4.8vw,72px)}
+ .studio-hero-lead{max-width:46%}
+ .studio-hero-description,.studio-hero-meta{max-width:44%}
+ .studio-hero-shade{background:linear-gradient(90deg,#faf8f1 0%,rgba(250,248,241,.98) 30%,rgba(250,248,241,.75) 44%,rgba(250,248,241,.12) 62%,transparent 76%)}
+ html[data-theme=dark] .studio-hero-shade{background:linear-gradient(90deg,#080808 0%,rgba(8,8,8,.98) 30%,rgba(8,8,8,.8) 44%,rgba(8,8,8,.2) 65%,rgba(8,8,8,.12))}
+}
+@media(max-width:1000px){.studio-hero{background-size:auto 85%;background-position:64% bottom}}
