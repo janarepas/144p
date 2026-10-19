@@ -112,3 +112,11 @@ document.addEventListener('click', event => { if (mobileMenu.open && !mobileMenu
 document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => { closeMenu();updateMenu(); }));
 window.addEventListener('resize', () => { if (window.innerWidth > 1000) closeMenu(); });
 updateMenu();
+
+const footerMark = document.querySelector('footer .footer-logo');
+if (footerMark && 'IntersectionObserver' in window) {
+ const markObserver = new IntersectionObserver(entries => {
+  footerMark.classList.toggle('is-in-view', entries[0].isIntersecting);
+ });
+ markObserver.observe(footerMark);
+}
