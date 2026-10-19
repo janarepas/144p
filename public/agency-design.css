@@ -310,3 +310,6 @@ html[data-theme=dark] .branding-curves{opacity:.14}
 .studio-services.studio-section{padding-bottom:0}
 @media(min-width:1001px){.studio-service-grid{gap:0;padding-bottom:0}.studio-service-body{padding-left:clamp(32px,4vw,80px);padding-right:clamp(32px,4vw,80px)}}
 @media(max-width:1000px){.studio-service-grid{gap:0}}
+/* A quieter support surface, distinct from the bright digital tile. */
+.studio-support{background:#fff5d6;color:#24211d}
+.studio-support .studio-kicker{color:#756746}
