@@ -476,3 +476,6 @@ html[data-theme] body .site-header nav .header-contact:is(:hover,:focus-visible)
 /* Night photography supplies the darkness; keep the screen's own glow visible. */
 html[data-theme=dark] .studio-hero-shade{background:linear-gradient(90deg,rgba(8,8,8,.75),rgba(8,8,8,.45) 35%,rgba(8,8,8,.08) 65%,transparent)}
 html[data-theme=dark] .studio-hero:before{background:linear-gradient(180deg,rgba(8,8,8,.85),rgba(8,8,8,.3) 55%,transparent)}
+/* Make the founder's website link visible without hover. */
+.studio-team h3 a{text-decoration:underline;text-decoration-color:#ffc20e;text-decoration-thickness:1px;text-underline-offset:6px}
+.studio-team h3 a:hover{text-decoration-thickness:2px}
