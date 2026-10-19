@@ -479,3 +479,9 @@ html[data-theme=dark] .studio-hero:before{background:linear-gradient(180deg,rgba
 /* Make the founder's website link visible without hover. */
 .studio-team h3 a{text-decoration:underline;text-decoration-color:#ffc20e;text-decoration-thickness:1px;text-underline-offset:6px}
 .studio-team h3 a:hover{text-decoration-thickness:2px}
+/* On narrow screens the glowing monitor sits behind copy: retain strong contrast. */
+@media(max-width:1000px){
+ html[data-theme=dark] .studio-hero-shade{background:linear-gradient(90deg,rgba(8,8,8,.88),rgba(8,8,8,.78));}
+ html[data-theme=dark] .studio-hero h1,html[data-theme=dark] .studio-hero-lead{color:#f7f5ee}
+ html[data-theme=dark] .studio-hero-description{color:#dedbd2}
+}
