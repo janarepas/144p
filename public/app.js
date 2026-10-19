@@ -8,7 +8,7 @@ function applyTheme(dark) {
  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
  const hero = document.querySelector('.studio-hero-photo');
  if (hero) {
-  const variant = dark ? 'night-' : '';
+  const variant = dark ? 'moonlight-' : '';
   hero.srcset = [960, 1920, 3840, 6880].map(width => `/images/studio-hero-${variant}${width}.webp ${width}w`).join(', ');
   hero.src = `/images/studio-hero-${variant}1920.webp`;
  }
