@@ -485,3 +485,5 @@ html[data-theme=dark] .studio-hero:before{background:linear-gradient(180deg,rgba
  html[data-theme=dark] .studio-hero h1,html[data-theme=dark] .studio-hero-lead{color:#f7f5ee}
  html[data-theme=dark] .studio-hero-description{color:#dedbd2}
 }
+/* A quieter footer mark on dark backgrounds, matching the reference footer. */
+html[data-theme=dark] footer .footer-logo .footer-logo-dark{opacity:.52!important}
