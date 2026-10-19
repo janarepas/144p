@@ -316,3 +316,22 @@ html[data-theme=dark] .branding-curves{opacity:.14}
 
 /* Align the desktop wordmark with the hero headline content column. */
 @media(min-width:1001px){html[data-theme] body .site-header{max-width:none!important;padding-left:max(6%,calc((100% - 1200px)/2));padding-right:max(6%,calc((100% - 1200px)/2))}html[data-theme] body .site-header .brand{transform:none}}
+
+/* Photo and line-art benefits, following the reference process cards. */
+.studio-benefits{gap:24px;align-items:stretch}
+html body .studio-benefits>li{padding:0 0 32px;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--bg);box-shadow:0 12px 36px #00000005}
+html body .studio-benefits>li:before{content:none}
+.benefit-visual{position:relative;height:228px;display:grid;place-items:center;background:linear-gradient(135deg,#fff9de,#fff3bc);margin-bottom:28px}
+.benefit-visual>img{display:block;width:100%;height:100%;object-fit:cover}
+.benefit-art{width:152px;height:152px;color:#292722}.benefit-accent{stroke:#e7ac00}
+.benefit-node{position:absolute;bottom:-20px;left:28px;width:44px;height:44px;display:grid;place-items:center;background:#ffdd00;color:#24211d;border:4px solid var(--bg);border-radius:50%}
+.benefit-node svg{width:22px;height:22px}
+html body .studio-benefits h3{font:400 25px/1.3 'DM Sans',Arial,sans-serif;letter-spacing:-.025em;margin:0;padding:12px 28px 0;color:var(--text)}
+html[data-theme=dark] .benefit-visual{background:linear-gradient(135deg,#302e21,#24231b)}
+html[data-theme=dark] .benefit-art{color:#efede5}
+@media(max-width:760px){.studio-benefits{gap:24px}html body .studio-benefits>li{padding-bottom:26px}.benefit-visual{height:200px}html body .studio-benefits h3{font-size:22px}}
+
+/* Keep the transition below the benefits free of a yellow rule. */
+.studio-contact{border-top:0}
+
+.benefit-visual>img{position:absolute;inset:0;min-height:0}
