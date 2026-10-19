@@ -175,3 +175,18 @@ html body .site-header .studio-mobile-menu summary{list-style:none;cursor:pointe
 /* Keep the mirrored photo position, with left-aligned copy for both founders. */
 .studio-team article:nth-child(2){text-align:left}
 .studio-team img{outline:1px solid #ffc20e;outline-offset:5px}
+/* Concise copy and larger, calmer supporting typography. */
+.studio-intro-columns{display:block;max-width:760px}
+.studio-intro-columns p{font-size:clamp(21px,2vw,26px);line-height:1.55}
+.studio-hero-description{font-size:20px;line-height:1.6}
+.studio-service li{font-size:19px;line-height:1.55;padding-bottom:14px}
+.studio-team .studio-team-bio{font-size:19px;line-height:1.6}
+.support-copy p{font-size:clamp(22px,2.2vw,28px);line-height:1.55}
+.studio-benefits{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.studio-benefits li{font-size:21px;line-height:1.5;padding-left:0;padding-top:48px}
+.studio-benefits li:before{top:18px}
+.studio-service h3{min-height:2.3em}
+html body .site-header .site-controls .studio-language{gap:10px}
+html body .site-header .site-controls .studio-language button{font-size:13px;line-height:24px;min-width:30px;min-height:44px;height:44px;padding:10px 3px}
+html body .site-header .site-controls .studio-language button+button:before{left:-9px;top:10px}
+@media(max-width:760px){.studio-intro-columns p{font-size:21px}.studio-hero-description{font-size:18px}.studio-team .studio-team-bio{font-size:18px}.studio-service li{font-size:19px}.support-copy p{font-size:23px}.studio-benefits{grid-template-columns:1fr;gap:0}.studio-benefits li{font-size:20px;padding:22px 0 22px 40px}.studio-benefits li:before{top:26px}.studio-service h3{min-height:0}}
