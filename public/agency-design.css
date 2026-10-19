@@ -341,8 +341,8 @@ html body .studio-services .studio-wrap{width:min(1200px,88%);max-width:none;mar
 html body .studio-services .studio-section-heading{width:100%;margin-left:0;margin-right:0}
 /* Edge-to-edge tile color with all artwork and copy inside the reading measure. */
 @media(min-width:1001px){
- .studio-service:first-child{box-shadow:-50vw 0 0 0 #ffdd00!important;clip-path:inset(0 0 0 -50vw)}
- .studio-service:last-child{box-shadow:50vw 0 0 0 #292929!important;clip-path:inset(0 -50vw 0 0)}
+ .studio-service:first-child{box-shadow:0 0 0 50vw #ffdd00!important;clip-path:inset(0 0 0 -50vw)}
+ .studio-service:last-child{box-shadow:0 0 0 50vw #292929!important;clip-path:inset(0 -50vw 0 0)}
  .studio-service-body{padding-left:28px;padding-right:28px}
  .studio-service:first-child .studio-service-body{padding-left:0}
  .studio-service:last-child .studio-service-body{padding-right:0}
