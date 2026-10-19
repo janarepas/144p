@@ -140,8 +140,8 @@
     "en": "Consistent execution."
   },
   "t61": {
-    "en": "05 / LET’S TALK",
-    "hu": "05 / BESZÉLJÜNK"
+    "hu": "06 / BESZÉLJÜNK",
+    "en": "06 / LET’S TALK"
   },
   "t62": {
     "hu": "Van egy ötleted?<br/><em>Beszéljünk.</em>",
@@ -166,5 +166,45 @@
   "brandingSecond": {
     "hu": "<strong>Tiszta vektorok. Átgondolt részletek.</strong> Következetes grafika, az első ötlettől a gyártásra kész anyagig.",
     "en": "<strong>Clean vectors. Considered details.</strong> Consistent artwork, from the first idea to production-ready files."
+  },
+  "faqLabel": {
+    "hu": "05 / GYAKORI KÉRDÉSEK",
+    "en": "05 / FREQUENTLY ASKED QUESTIONS"
+  },
+  "faqHeading": {
+    "hu": "Tisztázzuk, mielőtt kezdünk.",
+    "en": "A few things before we start."
+  },
+  "faqPriceQ": {
+    "hu": "Mennyibe kerül a grafikai tervezés?",
+    "en": "How much does graphic design cost?"
+  },
+  "faqPriceA": {
+    "hu": "A díj a feladattól, a szükséges változatoktól és a határidőtől függ. Írd meg, mire van szükséged, és a részletek egyeztetése után egyedi ajánlatot adunk.",
+    "en": "Pricing depends on the scope, the number of variations, and the deadline. Tell us what you need, and we’ll put together a tailored quote once we’ve agreed on the details."
+  },
+  "faqBriefQ": {
+    "hu": "Mit küldjek az ajánlatkéréshez?",
+    "en": "What should I include in my brief?"
+  },
+  "faqBriefA": {
+    "hu": "Írd le, mit szeretnél készíttetni, hol használod majd, és mikorra van rá szükséged. Ha van arculati útmutatód, szöveged, képed vagy referenciád, azokat is küldd el.",
+    "en": "Describe what you need, where it will be used, and your deadline. Share any brand guidelines, copy, images, or references you already have."
+  },
+  "faqSupportQ": {
+    "hu": "Folyamatos együttműködésre is van lehetőség?",
+    "en": "Can you provide ongoing creative support?"
+  },
+  "faqSupportA": {
+    "hu": "Igen. Kampányváltozatokhoz, rendszeres kreatívokhoz és kiadványfrissítésekhez is csatlakozhatunk a csapatodhoz. A feladatokat, az ütemezést és a kapacitást előre egyeztetjük.",
+    "en": "Yes. We can support your team with campaign variations, regular creatives, and publication updates. We agree on the tasks, schedule, and available capacity in advance."
+  },
+  "faqFilesQ": {
+    "hu": "Milyen fájlokat kapok a végén?",
+    "en": "What files will I receive?"
+  },
+  "faqFilesA": {
+    "hu": "A felhasználáshoz illő, előre egyeztetett formátumokat adjuk át: például digitális képeket, nyomdakész PDF-et vagy vektoros grafikát. A szerkeszthető forrásfájlokról is az ajánlat részeként egyeztetünk.",
+    "en": "We deliver the agreed formats for your intended use, such as digital images, print-ready PDFs, or vector artwork. Editable source files are also agreed as part of the quote."
   }
 }

@@ -520,3 +520,16 @@ html[data-theme] footer .footer-logo::after{animation-duration:14s}
 /* Start the slow glint as the visitor reaches the footer; restart on re-entry. */
 html[data-theme] footer .footer-logo::after{animation-name:none}
 html[data-theme] footer .footer-logo.is-in-view::after{animation-name:footer-logo-glint;animation-delay:-9s}
+/* Native, keyboard-accessible disclosures with the reference's quiet editorial layout. */
+.studio-faq .studio-section-heading{margin-bottom:40px}
+.studio-faq h2{text-wrap:balance}
+.studio-faq-list{border-top:1px solid var(--line)}
+.studio-faq details{border-bottom:1px solid var(--line)}
+.studio-faq summary{position:relative;list-style:none;cursor:pointer;padding:28px 48px 28px 0;min-height:80px;font-size:23px;font-weight:500;line-height:1.5;color:var(--text)}
+.studio-faq summary::-webkit-details-marker{display:none}
+.studio-faq summary::after{content:'';position:absolute;right:8px;top:50%;width:11px;height:11px;margin-top:-8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);transition:transform .25s ease}
+.studio-faq details[open] summary::after{transform:translateY(5px) rotate(225deg)}
+.studio-faq summary:focus-visible{outline:2px solid #ffc20e;outline-offset:4px;border-radius:3px}
+.studio-faq details>p{font-size:20px;line-height:1.7;color:var(--muted);max-width:72ch;margin:0;padding:0 32px 28px 0}
+@media(max-width:760px){.studio-faq .studio-section-heading{margin-bottom:28px}.studio-faq summary{font-size:19px;min-height:72px;padding:22px 36px 22px 0}.studio-faq details>p{font-size:17px;padding:0 0 24px}}
+@media(prefers-reduced-motion:reduce){.studio-faq summary::after{transition:none}}

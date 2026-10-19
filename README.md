@@ -21,6 +21,7 @@ A **144p Group** Lengyel Balázs és Répás János grafikai stúdiója. Digitá
 - A lábléc logóján visszafogott fénycsillanás, amely a logó megjelenésekor indul el.
 - Natív mobilmenü, billentyűzetes navigáció és csökkentett mozgás támogatása.
 - Keresőbarát metaadatok, megosztási kép, strukturált adatok, robots.txt és sitemap.
+- Kétnyelvű, lenyitható Gyakori kérdések az árazásról, ajánlatkérésről, folyamatos támogatásról és fájlátadásról.
 
 ## Technológia
 
