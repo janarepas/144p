@@ -38,7 +38,7 @@ html[data-theme] .contact:after{display:block;content:'';position:absolute;left:
 .studio-wrap{width:min(1200px,88%);margin-inline:auto}
 .studio-section{padding-top:88px;padding-bottom:88px;scroll-margin-top:110px}
 .studio-kicker{font:500 12px/1.6 'freight-text-pro','DM Sans',Arial,sans-serif;letter-spacing:.09em;color:var(--muted);margin:0 0 22px;text-transform:uppercase}
-.studio-hero{position:relative;isolation:isolate;min-height:740px;display:flex;align-items:center;background:#f7f5ee url('images/creative-studio-hero.png') center 55%/cover no-repeat;color:#24211d;overflow:hidden}
+.studio-hero{position:relative;isolation:isolate;min-height:740px;display:flex;align-items:center;background:#f7f5ee url('images/creative-studio-imac.png') center 55%/cover no-repeat;color:#24211d;overflow:hidden}
 .studio-hero-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(250,248,241,.98),rgba(250,248,241,.9) 36%,rgba(250,248,241,.35) 60%,transparent 78%)}
 .studio-hero-content{padding-top:150px;padding-bottom:64px}
 .studio-hero .studio-kicker{color:#625e57;max-width:590px}
