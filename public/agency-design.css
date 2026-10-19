@@ -393,3 +393,8 @@ html[data-theme] .studio-hero:after,html[data-theme] .studio-hero-workspace{disp
 /* High-density WebP delivery, with an ultrawide Retina variant. */
 html[data-theme] .studio-hero{background-image:url('images/creative-studio-retina-3840.webp')}
 @media(min-width:1921px) and (min-resolution:1.5dppx){html[data-theme] .studio-hero{background-image:url('images/creative-studio-retina-6880.webp')}}
+/* Hover must preserve the color extensions, which are painted as shadows. */
+@media(min-width:1001px) and (hover:hover){
+ html[data-motion] .studio-service:first-child[data-reveal=visible]:hover,.studio-service:first-child:hover{box-shadow:0 0 0 50vw #ffdd00!important}
+ html[data-motion] .studio-service:last-child[data-reveal=visible]:hover,.studio-service:last-child:hover{box-shadow:0 0 0 50vw #292929!important}
+}
