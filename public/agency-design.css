@@ -401,3 +401,8 @@ html[data-theme] .studio-hero{background-image:url('images/creative-studio-retin
 /* A consistent yellow project invitation in both themes. */
 html[data-theme] body .studio-contact .studio-button{background:#ffdd00;color:#111;border-color:#ffdd00}
 html[data-theme] body .studio-contact .studio-button:hover{background:#ffc20e;border-color:#ffc20e}
+/* The opening and closing project buttons share one visual and motion treatment. */
+html[data-theme] body :is(.studio-hero,.studio-contact) .studio-button{background:#ffdd00;color:#111;border:1px solid #ffdd00;padding:18px 28px;min-height:56px;font:700 13px/1.4 'DM Sans',Arial,sans-serif;border-radius:50px;transition:background-color .2s ease,border-color .2s ease,color .2s ease}
+html[data-theme] body :is(.studio-hero,.studio-contact) .studio-button:hover{background:#ffc20e;border-color:#ffc20e;color:#111}
+@media(max-width:760px){html[data-theme] body :is(.studio-hero,.studio-contact) .studio-button{padding:16px 21px;min-height:52px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){html[data-theme] body :is(.studio-hero,.studio-contact) .studio-button{transition:none}}
