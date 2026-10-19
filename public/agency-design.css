@@ -314,5 +314,5 @@ html[data-theme=dark] .branding-curves{opacity:.14}
 .studio-support{background:#fff5d6;color:#24211d}
 .studio-support .studio-kicker{color:#756746}
 
-/* Give the desktop wordmark more breathing room from the navigation. */
-@media(min-width:1001px){html[data-theme] body .site-header .brand{transform:translateX(clamp(-72px,-4vw,-40px))}}
+/* Align the desktop wordmark with the hero headline content column. */
+@media(min-width:1001px){html[data-theme] body .site-header{max-width:none!important;padding-left:max(6%,calc((100% - 1200px)/2));padding-right:max(6%,calc((100% - 1200px)/2))}html[data-theme] body .site-header .brand{transform:none}}
