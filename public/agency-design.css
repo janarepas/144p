@@ -286,10 +286,6 @@ html[data-theme=dark] .branding-curves{opacity:.14}
 }
 @media(prefers-reduced-motion:reduce){.studio-service,.studio-service-art svg{transition:none!important}}
 @media(min-width:1001px){.studio-service-grid{align-items:start;padding-bottom:0}.studio-service{margin-top:var(--tile-offset);transform:none}@media(hover:hover){html[data-motion] .studio-service[data-reveal=visible]:hover,.studio-service:hover{transform:translateY(-6px)}}}
-/* Muted decorative video, with the existing image as the loading/error fallback. */
-.studio-video{position:absolute;inset:0;z-index:-2;overflow:hidden;opacity:0;pointer-events:none;transition:opacity .8s ease}
-.studio-video iframe{position:absolute;left:50%;top:50%;width:var(--video-width,100%);height:var(--video-height,100%);transform:translate(-50%,-50%);border:0;max-width:none;pointer-events:none}
-.studio-hero.video-playing:not(.reduce-video-motion) .studio-video{opacity:1}
 /* Flat, continuous service tiles instead of framed cards. */
 .studio-service-grid{gap:2px}
 .studio-service{border:0!important;border-radius:0!important;box-shadow:none!important;overflow:hidden}
@@ -306,17 +302,7 @@ html[data-theme=dark] .branding-curves{opacity:.14}
  @media(hover:hover){html[data-motion] .studio-service[data-reveal=visible]:hover,.studio-service:hover{transform:none!important;box-shadow:none!important}}
 }
 @media(max-width:1000px){.studio-service-grid{gap:2px}.studio-service{margin:0}.studio-service-art{border-radius:0}}
-@media(prefers-reduced-motion:reduce){.studio-video{display:none;transition:none}}
 
-/* Reduce the background movement's visual weight without blending in the old photo. */
-.studio-hero.video-playing:not(.reduce-video-motion){background-image:none}
-.studio-hero.video-playing:not(.reduce-video-motion) .studio-video{opacity:.42}
-html[data-theme=dark] .studio-hero.video-playing:not(.reduce-video-motion) .studio-video{opacity:.32}
-/* Subtle CRT texture stays inside the background video, away from readable copy. */
-.studio-video iframe{filter:saturate(.78) contrast(1.12)}
-.studio-video:after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background-image:repeating-linear-gradient(0deg,rgba(8,8,8,.24) 0px,rgba(8,8,8,.24) 1px,transparent 1px,transparent 4px),repeating-linear-gradient(90deg,rgba(255,60,30,.075) 0px,rgba(255,60,30,.075) 1px,rgba(30,255,90,.055) 1px,rgba(30,255,90,.055) 2px,rgba(60,90,255,.075) 2px,rgba(60,90,255,.075) 3px);mix-blend-mode:multiply}
-.studio-video:before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse at center,transparent 45%,rgba(8,8,8,.2) 100%)}
-@media(prefers-reduced-motion:reduce){.studio-video:before,.studio-video:after{display:none}}
 /* Full-width, uninterrupted tile surface; the heading keeps its reading measure. */
 .studio-services .studio-wrap{width:100%;max-width:none}
 .studio-services .studio-section-heading{width:min(1440px,88%);margin-left:auto;margin-right:auto}

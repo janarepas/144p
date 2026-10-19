@@ -40,10 +40,6 @@ A `public/motion.js` a jrepas.hu nyilvános animációs megoldására épül: Le
 
 A Cloudflare Pages `functions/_middleware.js` a `request.cf.country` alapján már az első HTML-válaszban magyar tartalmat ad magyarországi látogatóknak. Minden magyarországi újratöltés magyarra áll vissza, más országokban az angol az alap; a kézi váltó továbbra is működik. A szerveroldali nyelvi adatok a `public/translations-data.json` fájlban vannak; szövegmódosításkor ez és a kliensoldali `translations.js` együtt frissítendő. A megosztási kép `public/images/social-preview.png`, 1200×630 px. A HTML tartalmazza az Open Graph- és Twitter-metaadatokat is.
 
-## Videó és zene
+## Fejléc
 
-A fejléc a felhasználó által megadott `ybrYeRqn3sg` YouTube-videót kéri be a hivatalos IFrame API-val: némítva, ismételve, kezelősáv nélkül, 0.5-ös sebességgel, ha a videó engedélyezi. A YouTube saját márkajelzéseinek teljes eltüntetése nem garantálható. Sikertelen betöltésnél a meglévő állókép marad látható. Csökkentett mozgás beállításnál nincs automatikus videó. A háttérvideó görgetés közben folyamatosan fut; rejtett böngészőlapon szünetel. Újraindulás és pufferelés alatt a kép marad látható, a 3,5 másodperces stabil lejátszás után jelenik meg ismét.
-
-A zenelejátszó a felhasználó kérésére eltávolítva: nincs automatikus hang vagy külön zenei panel. A fejlécvideó 35%-kal a kitöltéshez szükséges méret fölé nagyítva vágja le a képszéleket; világos módban 42%, sötétben 32% fedettséggel jelenik meg. A YouTube-videó eredeti képszéleit innen nem tudtuk ellenőrizni.
-
-A videó CRT-réteget kapott (finom pásztázóvonalak, RGB-rács, enyhe vignetta). A háttérvideó az első folyamatos PLAYING állapot után 3,5 másodperccel jelenik meg, hogy a YouTube induló felülete kevésbé villanjon fel. A beágyazás saját későbbi overlayei továbbra sem vezérelhetők teljesen a szülőoldalról.
+A fejléc az eredeti `public/images/creative-studio-hero.png` állóképet használja. Nincs YouTube-beágyazás, videó vagy zene. A fokozatos tartalommegjelenés, a felső elmosás és a finom görgetés megmaradt.
