@@ -453,3 +453,15 @@ html[data-theme] body .site-header nav .header-contact:focus-visible{outline:2px
  html body .studio-service:nth-child(3) h3{color:#f7f5ee}
  html body .studio-service:nth-child(3) .studio-service-summary{color:#c4c1b6}
 }
+/* The navigation uses the reference site's compact outlined Contact button. */
+html[data-theme] body .site-header nav .header-contact{min-height:44px;height:44px;padding:10px 16px!important;font-size:12px;border:2px solid #ffdd00!important;background:transparent!important;color:var(--text)!important;transition:border-color .2s ease,color .2s ease!important}
+html[data-theme] body .site-header nav .header-contact:is(:hover,:focus-visible){background:transparent!important;border-color:#ffc20e!important;color:var(--text)!important}
+/* Explicit shared measure prevents the branding copy drifting outside the other sections. */
+html body .agency-ribbon.branding-block{display:block;padding-left:0;padding-right:0}
+html body .branding-block .branding-content{width:min(1200px,88%);max-width:1200px;margin-inline:auto;flex:none;transform:none}
+.studio-team h3 a:hover{text-decoration:underline;text-decoration-color:#ffc20e;text-underline-offset:5px}
+.studio-team h3 a:focus-visible{outline:2px solid #ffc20e;outline-offset:5px}
+/* Discover the responsive hero directly in HTML, without a CSS download chain. */
+html[data-theme] .studio-hero{background-image:none}
+.studio-hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-3;pointer-events:none}
+@media(max-width:1000px){.studio-hero-photo{object-position:64% center}}

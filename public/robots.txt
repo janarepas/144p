@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://144p.hu/sitemap.xml

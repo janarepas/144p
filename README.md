@@ -43,3 +43,11 @@ A Cloudflare Pages `functions/_middleware.js` a `request.cf.country` alapján m�
 ## Fejléc
 
 A fejléc az eredeti `public/images/creative-studio-hero.png` állóképet használja. Nincs YouTube-beágyazás, videó vagy zene. A fokozatos tartalommegjelenés, a felső elmosás és a finom görgetés megmaradt.
+
+## Frissítés és optimalizálás
+
+A forrás-stíluslapok továbbra is a `public/style.css`, `public/agency.css` és `public/agency-design.css` fájlok. Módosításuk után futtasd az `npm ci && npm run build` parancsot, és a létrejövő `public/assets/studio.*.css` fájlt, valamint a frissített `public/index.html` fájlt is commitold. A build egyetlen tömörített, tartalom alapján verziózott stíluslapra cseréli a HTML hivatkozásait. A Cloudflare Pages a commitolt `public` könyvtárat szolgálja ki, nincs szükség új telepítési beállításra.
+
+A nyitókép HTML-ben megadott, prioritásos, reszponzív WebP: 960, 1920, 3840 és 6880 pixel széles változatokból választ a böngésző a képernyő és pixelsűrűség alapján. A Retina-változatok részletjavított, felnagyított képek. Az Adobe Fonts aszinkron töltődik, az oldal helyi fallback betűkkel is használható. A `robots.txt`, `sitemap.xml`, szervezeti és szolgáltatási JSON-LD adatok, valamint statikus cache-szabályok a `public` könyvtárban vannak. A nyelvet továbbra is a Cloudflare országadata és a felhasználó választása kezeli.
+
+A két alapító megnevezése „Társalapító · Grafikus”; Répás János neve a jrepas.hu oldalra mutat. A navigáció külön körvonalas kapcsolatgombot használ; a nagy projektgombok sárga háttere és animációja megmarad.
