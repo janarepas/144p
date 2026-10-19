@@ -1,53 +1,139 @@
 # 144p Group
 
-Magyar és angol nyelvű, reszponzív creative design & production studio oldal Lengyel Balázs és Répás János csapatának. Az eredeti jrepas.hu arculati betűit és színeit önálló elrendezéssel, teljes szélességű stúdió-nyitóképpel használja. A szakmai tartalmat a felhasználó által megadott agency-bemutatkozás biztosítja.
+**Low resolution. High standards.**
 
-## Futtatás
+A 144p Group kétnyelvű bemutatkozó weboldala. Lengyel Balázs és Répás János grafikai stúdiója digitális kreatívokkal, nyomtatott kiadványokkal, csomagolásgrafikával és gyártásra kész anyagokkal támogatja a márkákat.
 
-Node.js 20+; külső npm-függőség nélkül:
+[Weboldal](https://144p.hu/) · [Upwork](https://www.upwork.com/agencies/144p/) · [Répás János](https://jrepas.hu/)
+
+![144p Group – Creative Design & Production Studio](public/images/social-preview.png)
+
+## Funkciók
+
+- Reszponzív elrendezés mobilra, tabletre és asztali kijelzőre.
+- Magyar és angol tartalom, ország szerinti alapértelmezett nyelvvel és megjegyzett kézi választással.
+- Világos és sötét mód, mentett beállítással és animált átmenettel.
+- Nappali és esti fejlécfotó; sötét módban világító monitor és kintről beszűrődő fény.
+- Kijelzőmérethez és pixelsűrűséghez igazodó WebP-képek.
+- Finom görgetés, fokozatos tartalommegjelenés és görgetésre mozgó Bézier-görbék.
+- A lábléc logóján visszafogott fénycsillanás, amely a logó megjelenésekor indul el.
+- Natív mobilmenü, billentyűzetes navigáció és csökkentett mozgás támogatása.
+- Keresőbarát metaadatok, megosztási kép, strukturált adatok, robots.txt és sitemap.
+
+## Technológia
+
+Az oldal HTML-re, CSS-re és JavaScriptre épül, alkalmazáskeretrendszer nélkül. A Cloudflare Pages statikus fájlokat szolgál ki; a nyelv szerveroldali kiválasztását egy Pages Function végzi. A helyi előnézethez Node.js, a CSS összeállításához a `clean-css`, a simított görgetéshez helyben tárolt Lenis szükséges.
+
+## Helyi indítás
+
+**Követelmény:** Node.js 20 vagy újabb, npm.
 
 ```sh
-npm start
+git clone https://github.com/janarepas/144p-group.git
+cd 144p-group
+npm ci
+npm run build
+npm run dev
 ```
 
-Alapértelmezett port: 3000, a `PORT` változóval módosítható. Cloudflare Pages: `main` ág, nincs build parancs, kimeneti könyvtár `public` (a `wrangler.jsonc` rögzíti).
+Az előnézet címe: **http://localhost:3000**. Az `npm start` ugyanazt a helyi szervert indítja el. Más port például:
 
-## Arculat
+```sh
+PORT=8080 npm run dev
+```
 
-Az eredeti CSS-ben megadott színek: `#ffdd00`, `#ffc20e`, `#f26522`. Címsor: IvyPresto Display italic; szöveg: Freight Text Pro. Az eredeti Adobe Fonts kit (`https://use.typekit.net/qtn2utl.css`) hivatkozása megmaradt. A kit lekérését az ellenőrző környezet 403-mal blokkolja, ezért itt a tényleges Adobe-betűbetöltés nem igazolható. Az Adobe Fonts projekt domainjogosultságát a 144p.hu és a Pages címen külön ellenőrizni kell; a fontok nem kerültek jogosulatlanul másolásra. A jrepas.hu helyi fallback fontjai a `public/fonts/` könyvtárban találhatók.
+A helyi szerver a `public` könyvtárat szolgálja ki. Nem futtatja a Cloudflare middleware-t, az országfelismerést, illetve a Pages átirányítási és HTTP-fejlécszabályait. Helyben mentett választás nélkül az angol HTML jelenik meg; a nyelvváltó és a témaváltó itt is működik. A Cloudflare-specifikus működést a telepített oldalon kell ellenőrizni.
 
-Az eredeti stíluslap a `public/style.css`, az agency kiegészítései a `public/agency.css` fájlban vannak. A világos/sötét megjelenés váltója működik. A fejlécben nincs nem működő nyelvválasztó.
+## Fájlszerkezet
 
-## Véglegesítendő tartalom
+| Hely | Feladat |
+| --- | --- |
+| `public/index.html` | Tartalom, navigáció, metaadatok és strukturált adatok |
+| `public/style.css` | Alapstílusok és tipográfia |
+| `public/agency.css` | Stúdióspecifikus alapstílusok és logók |
+| `public/agency-design.css` | Elrendezés, reszponzív szabályok és vizuális effektek |
+| `public/assets/studio.*.css` | Generált, tömörített és verziózott stíluslap |
+| `public/app.js` | Nyelv, téma, mobilmenü és logócsillanás |
+| `public/motion.js` | Simított görgetés, megjelenési effektek és háttérgörbék |
+| `public/translations-data.json` | A szerveroldali fordítások |
+| `public/translations.js` | A böngészőben használt fordítások |
+| `public/images/`, `public/fonts/` | Képek, logók és helyi tartalék betűkészletek |
+| `public/vendor/` | Lenis és a hozzá tartozó licenc |
+| `functions/_middleware.js` | Ország és mentett nyelv alapján előállított HTML |
+| `scripts/build-css.mjs` | A CSS összeállítása és a HTML-hivatkozás frissítése |
+| `server.js` | Helyi statikus előnézeti szerver |
+| `wrangler.jsonc` | Cloudflare Pages projektbeállítások |
 
-- A csapat valódi, a felhasználó által átadott 100×100 pixeles portréi bekerültek. Nagyobb megjelenítéshez nagyobb felbontású eredeti képek szükségesek; Lengyel Balázs részletes szakmai bemutatkozása még egyeztetendő.
-- A szolgáltatások, ongoing support és együttműködési előnyök a felhasználó által átadott teljes angol stúdióbemutatkozást követik. Három szolgáltatáskategória, összesen 15 felsorolt szolgáltatással.
-- Minden agency kapcsolatfelvételi gomb a megadott Upwork profilra vezet.
+## Tartalom és megjelenés módosítása
 
-A csapatblokk Balázzsal kezdődik (körportré balra, szöveg jobbra), utána János következik tükrözött elrendezéssel. A nyitókép generált, szöveg és szerkesztőikonok nélküli háttér; helye: `public/images/creative-studio-hero.png`.
+### Szövegek
 
-## Nyelvválasztás
+A `data-i18n` attribútummal jelölt elemeket a fordítások töltik ki. Szövegmódosításkor a következő három helyet tartsd összhangban:
 
-A statikus HTML magyar. A `public/translations.js` tartalmazza mind a 64 kétnyelvű szövegelemet. A fejléc HU/EN gombjai azonnal váltanak; a kézi választást helyi tároló őrzi meg. Első látogatáskor magyar böngészőnyelvnél magyar, más böngészőnyelvnél angol változat jelenik meg. Nincs IP-alapú helymeghatározás vagy külső geolokációs szolgáltatás. A lapcím, leírás és akadálymentes navigációs címkék is nyelvet váltanak.
+1. `public/translations-data.json`: magyar és angol fordítások a szerver számára.
+2. `public/translations.js`: ugyanazok az adatok a `window.STUDIO_TRANSLATIONS` objektumban.
+3. `public/index.html`: az adott elem angol alapértelmezett tartalma.
 
-Balázs magyar és angol bemutatkozása a felhasználó által átadott LinkedIn-képernyőképek alapján készült: ALDI és PENNY grafikai tapasztalat, online és nyomtatott marketinganyagok, bannerek, retusálás és TV-szpotgrafikák.
+A lapcímek és leírások az `index.html`, az `app.js` és a middleware fájlban is szerepelnek; ezek változtatásakor mindhárom helyet ellenőrizd.
 
-## Mozgás és elmosás
+### Stílusok
 
-A `public/motion.js` a jrepas.hu nyilvános animációs megoldására épül: Lenis 1.3.27 (`lerp: 0.1`, simított görgő, natív mobilérintés), IntersectionObserver-alapú fokozatos megjelenés és Safari-kompatibilis felső elmosás. A Lenis helyi példány és MIT-licence a `public/vendor/` könyvtárban található. Csökkentett mozgás beállításnál nincs animált görgetés vagy rejtett tartalom; JavaScript nélkül az oldal tartalma és a natív mobilmenü elérhető marad.
+A három forrás-stíluslapot szerkeszd, ne a `public/assets` generált fájlját. Módosítás után:
 
-## Ország szerinti nyelv és megosztás
+```sh
+npm run build
+git diff --check
+git status --short
+```
 
-A Cloudflare Pages `functions/_middleware.js` a `request.cf.country` alapján már az első HTML-válaszban magyar tartalmat ad magyarországi látogatóknak. Minden magyarországi újratöltés magyarra áll vissza, más országokban az angol az alap; a kézi váltó továbbra is működik. A szerveroldali nyelvi adatok a `public/translations-data.json` fájlban vannak; szövegmódosításkor ez és a kliensoldali `translations.js` együtt frissítendő. A megosztási kép `public/images/social-preview.png`, 1200×630 px. A HTML tartalmazza az Open Graph- és Twitter-metaadatokat is.
+A build sorrendben egyesíti és tömöríti a `style.css`, `agency.css` és `agency-design.css` fájlokat. Tartalom alapján elnevezett CSS-t készít, frissíti a HTML hivatkozását, és eltávolítja a korábbi generált stíluslapot. **A forrásokkal együtt a frissített HTML-t, az új CSS-t és a régi generált fájl törlését is commitolni kell.**
 
-## Fejléc
+### Képek és arculat
 
-A fejléc az eredeti `public/images/creative-studio-hero.png` állóképet használja. Nincs YouTube-beágyazás, videó vagy zene. A fokozatos tartalommegjelenés, a felső elmosás és a finom görgetés megmaradt.
+A fejléc `studio-hero-{szélesség}.webp` és `studio-hero-moonlight-{szélesség}.webp` képeket használ, 960, 1920, 3840 és 6880 pixeles szélességben. A nappali képek hivatkozásai a HTML-ben és annak előtöltésében, a témaváltás képhivatkozásai az `app.js` fájlban találhatók. Képcserekor ezeket együtt frissítsd. A nagy változatok részletjavított, felnagyított képek.
 
-## Frissítés és optimalizálás
+A megosztási kép a `public/images/social-preview.png` fájl, 1200 × 630 pixel méretben. Azonos fájlnéven cserélt képet a böngésző és a CDN átmenetileg gyorsítótárazhat; biztos frissítéshez használj új fájlnevet és módosítsd a hivatkozásokat.
 
-A forrás-stíluslapok továbbra is a `public/style.css`, `public/agency.css` és `public/agency-design.css` fájlok. Módosításuk után futtasd az `npm ci && npm run build` parancsot, és a létrejövő `public/assets/studio.*.css` fájlt, valamint a frissített `public/index.html` fájlt is commitold. A build egyetlen tömörített, tartalom alapján verziózott stíluslapra cseréli a HTML hivatkozásait. A Cloudflare Pages a commitolt `public` könyvtárat szolgálja ki, nincs szükség új telepítési beállításra.
+Az arculati színek sárga (`#ffdd00`), arany (`#ffc20e`) és narancs (`#f26522`), világos és sötét semleges felületekkel. A címsorok IvyPresto Display, a törzsszövegek Freight Text Pro betűt használnak az Adobe Fonts készletéből. Az Adobe-stíluslap közvetlenül töltődik; hálózati vagy tartalomblokkolás esetén helyi/rendszerbetűk helyettesítik. A készlet és a domainbeállítások az Adobe Fonts projektben kezelhetők.
 
-A nyitókép HTML-ben megadott, prioritásos, reszponzív WebP: 960, 1920, 3840 és 6880 pixel széles változatokból választ a böngésző a képernyő és pixelsűrűség alapján. A Retina-változatok részletjavított, felnagyított képek. Az Adobe Fonts közvetlen stylesheet-hivatkozással töltődik, JavaScript- és media/onload-függés nélkül; az oldal helyi fallback betűkkel is használható. A `robots.txt`, `sitemap.xml`, szervezeti és szolgáltatási JSON-LD adatok, valamint statikus cache-szabályok a `public` könyvtárban vannak. A nyelvet továbbra is a Cloudflare országadata és a felhasználó választása kezeli.
+## Nyelv és téma
 
-A két alapító megnevezése „Társalapító · Grafikus”; Répás János neve a jrepas.hu oldalra mutat. A navigáció külön körvonalas kapcsolatgombot használ; a nagy projektgombok sárga háttere és animációja megmarad.
+Mentett választás nélkül a Cloudflare magyarországi látogatóknak magyar, más országokból érkezőknek angol tartalmat ad. A kézzel kiválasztott nyelv elsőbbséget élvez az ország szerinti alapértelmezéssel szemben.
+
+| Beállítás | Tárolás |
+| --- | --- |
+| Nyelv | `144p-language` a localStorage-ban; azonos nevű, egy évre beállított cookie a szerveroldali kiválasztáshoz |
+| Világos/sötét mód | `144p-theme` a localStorage-ban |
+
+Mentett téma nélkül az oldal világos módban indul. A nyelvi cookie `Secure` és `SameSite=Lax` beállítású. A személyre szabott HTML `private, no-store` fejlécet kap, így nem kerül más látogató számára megosztott gyorsítótárba.
+
+## Telepítés Cloudflare Pages-re
+
+A jelenlegi munkafolyamat a repóba commitolt, már összeállított statikus fájlokat telepíti:
+
+| Beállítás | Érték |
+| --- | --- |
+| Projekt | `144p-group` |
+| Éles ág | `main` |
+| Keretrendszer | Nincs |
+| Build parancs | Üres; a CSS-build feltöltés előtt helyben fut |
+| Kimeneti könyvtár | `public` |
+| Egyéni domain | `144p.hu` |
+
+A `main` ágra feltöltött változásokat a GitHubhoz kapcsolt Pages-projekt telepíti. A gyökérben lévő `functions` könyvtár a nyelvi middleware-t adja; ehhez Cloudflare Pages Functions támogatás szükséges. A funkció útvonalait a `public/_routes.json`, a statikus cache-szabályokat a `public/_headers`, az átirányításokat a `public/_redirects` határozza meg.
+
+A helyi indításhoz és a CSS-buildhez nincs szükség titkos környezeti változóra. A `PORT` csak a helyi előnézeti szerver portját módosítja.
+
+## Ellenőrzés feltöltés előtt
+
+- Futtasd az `npm run build` és a `git diff --check` parancsot.
+- Ellenőrizd a mobilmenüt, a belső navigációt és a külső linkeket.
+- Nézd meg a magyar/angol szövegeket, valamint mindkét témát mobilon és nagy kijelzőn.
+- Frissítés után is maradjon meg a kézzel választott nyelv és téma.
+- Ellenőrizd a mozgáscsökkentett megjelenést és a képek betöltését.
+
+Az `npm test` a Node.js tesztfuttatóját indítja; a repó jelenleg nem tartalmaz külön automatizált tesztcsomagot. A korábbi mobilos Lighthouse-mérés és az optimalizálások összefoglalója a [mérési jegyzetben](docs/optimization-review.md) található. A pontszámok az ott rögzített verzióra és mérési környezetre vonatkoznak.
+
+## Felhasználás
+
+A repó nem tartalmaz általános nyílt forráskódú licencet. A márkaelemek, képek és tartalmak további felhasználásához egyeztess a 144p Grouppal. A Lenis saját MIT-licence a [vendor könyvtárban](public/vendor/lenis-LICENSE.txt) található; az Adobe-betűk használatára az Adobe licencfeltételei vonatkoznak.
