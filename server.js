@@ -12,5 +12,5 @@ http.createServer(async (req, res) => {
     const body = await readFile(target);
     res.writeHead(200, { 'Content-Type': types[path.extname(target)] || 'application/octet-stream' });
     res.end(body);
-  } catch { res.writeHead(404); res.end('Not found'); }
+  } catch { res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' }); res.end(await readFile(path.join(root, '404.html'))); }
 }).listen(Number(process.env.PORT || 3000), '0.0.0.0', () => console.log('144p Group running on port ' + (process.env.PORT || 3000)));
