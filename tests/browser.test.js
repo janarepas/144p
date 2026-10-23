@@ -127,3 +127,19 @@ run('FAQ: animated opening, closing and rapid reversal on mobile and desktop', a
   await page.close();
  }
 });
+run('runtime: responsive hero formats and theme fallback remain usable', async browser => {
+ for (const fallback of [false,true]) {
+  const page=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
+  await page.goto(base);
+  if(fallback)await page.locator('picture source').evaluate(e=>e.type='image/not-supported');
+  for(const theme of ['light','dark']){
+   if(await page.locator('html').getAttribute('data-theme')!==theme)await page.locator('.theme-toggle').click();
+   const image=page.locator('.studio-hero-photo');await image.evaluate(e=>e.decode());
+   const state=await image.evaluate(e=>({src:e.currentSrc,width:e.naturalWidth}));
+   assert.ok(state.width>0);
+   assert.ok(state.src.endsWith(fallback?'.webp':'.avif'));
+   assert.equal(state.src.includes('moonlight-'),theme==='dark');
+  }
+  await page.close();
+ }
+});
