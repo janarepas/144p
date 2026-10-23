@@ -16,7 +16,7 @@ A **144p Group** Lengyel Balázs és Répás János grafikai stúdiója. Digitá
 - Magyar és angol tartalom, ország szerinti alapértelmezett nyelvvel és megjegyzett kézi választással.
 - Világos és sötét mód, mentett beállítással és animált átmenettel.
 - Nappali és esti fejlécfotó; sötét módban világító monitor és kintről beszűrődő fény.
-- Kijelzőmérethez és pixelsűrűséghez igazodó WebP-képek.
+- Kijelzőmérethez és pixelsűrűséghez igazodó AVIF-képek, WebP tartalékformátummal.
 - Finom görgetés, fokozatos tartalommegjelenés és görgetésre mozgó Bézier-görbék.
 - A lábléc logóján visszafogott fénycsillanás, amely a logó megjelenésekor indul el.
 - Natív mobilmenü, billentyűzetes navigáció és csökkentett mozgás támogatása.
@@ -25,7 +25,7 @@ A **144p Group** Lengyel Balázs és Répás János grafikai stúdiója. Digitá
 
 ## Technológia
 
-Az oldal HTML-re, CSS-re és JavaScriptre épül, alkalmazáskeretrendszer nélkül. A Cloudflare Pages statikus fájlokat szolgál ki; a nyelv szerveroldali kiválasztását egy Pages Function végzi. A helyi előnézethez Node.js, a CSS összeállításához a `clean-css`, a simított görgetéshez helyben tárolt Lenis szükséges.
+Az oldal HTML-re, CSS-re és JavaScriptre épül, alkalmazáskeretrendszer nélkül. A Cloudflare Pages statikus fájlokat szolgál ki; a nyelv szerveroldali kiválasztását egy Pages Function végzi. A helyi előnézethez Node.js, a CSS összeállításához a `purgecss` és a `clean-css`, a simított görgetéshez helyben tárolt Lenis szükséges.
 
 ## Helyi indítás
 
@@ -55,7 +55,7 @@ A helyi szerver a `public` könyvtárat szolgálja ki. Nem futtatja a Cloudflare
 | `public/style.css` | Alapstílusok és tipográfia |
 | `public/agency.css` | Stúdióspecifikus alapstílusok és logók |
 | `public/agency-design.css` | Elrendezés, reszponzív szabályok és vizuális effektek |
-| `public/assets/studio.*.css` | Generált, tömörített és verziózott stíluslap |
+| `public/assets/studio.*.css` | Generált, tisztított és tömörített CSS-pillanatkép |
 | `public/app.js` | Nyelv, téma, mobilmenü és logócsillanás |
 | `public/motion.js` | Simított görgetés, megjelenési effektek és háttérgörbék |
 | `public/translations-data.json` | A szerveroldali fordítások |
@@ -89,11 +89,11 @@ git diff --check
 git status --short
 ```
 
-A build sorrendben egyesíti és tömöríti a `style.css`, `agency.css` és `agency-design.css` fájlokat. Tartalom alapján elnevezett CSS-t készít, frissíti a HTML hivatkozását, és eltávolítja a korábbi generált stíluslapot. **A forrásokkal együtt a frissített HTML-t, az új CSS-t és a régi generált fájl törlését is commitolni kell.**
+A build sorrendben egyesíti a `style.css`, `agency.css` és `agency-design.css` fájlokat, eltávolítja a HTML-ben és JavaScriptben nem használt szelektorokat, majd tömörít. Az eredményt a HTML `studio-styles` stílusblokkjába illeszti, így az első megjelenítéshez nem kell külön CSS-kérésre várni. Egy tartalom alapján elnevezett CSS-pillanatképet is megőriz a `public/assets` alatt. **A forrásokkal együtt a frissített HTML-t, az új CSS-t és a régi generált fájl törlését is commitolni kell.** Új, JavaScriptből képzett osztályneveknél ellenőrizd a build safelist beállításait és mindkét témát.
 
 ### Képek és arculat
 
-A fejléc `studio-hero-{szélesség}.webp` és `studio-hero-moonlight-{szélesség}.webp` képeket használ, 960, 1920, 3840 és 6880 pixeles szélességben. A nappali képek hivatkozásai a HTML-ben és annak előtöltésében, a témaváltás képhivatkozásai az `app.js` fájlban találhatók. Képcserekor ezeket együtt frissítsd. A nagy változatok részletjavított, felnagyított képek.
+A fejléc `studio-hero-{szélesség}` és `studio-hero-moonlight-{szélesség}` képeket használ AVIF és WebP formátumban, 960, 1920, 3840 és 6880 pixeles szélességben. A böngésző a `<picture>` elem alapján választ támogatott formátumot. A nappali képek hivatkozásai a HTML-ben és annak előtöltésében, a témaváltás képhivatkozásai az `app.js` fájlban találhatók. Képcserekor ezeket együtt frissítsd. A nagy változatok részletjavított, felnagyított képek.
 
 A megosztási kép a `public/images/social-preview.png` fájl, 1200 × 630 pixel méretben. Azonos fájlnéven cserélt képet a böngésző és a CDN átmenetileg gyorsítótárazhat; biztos frissítéshez használj új fájlnevet és módosítsd a hivatkozásokat.
 

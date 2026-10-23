@@ -1,3 +1,12 @@
+function setHeroScene(image, dark) {
+ const variant = dark ? 'moonlight-' : '';
+ const sizes = [960, 1920, 3840, 6880];
+ const avif = image.closest('picture')?.querySelector('source[type="image/avif"]');
+ if (avif) avif.srcset = sizes.map(width => `/images/studio-hero-${variant}${width}.avif ${width}w`).join(', ');
+ image.sizes = '100vw';
+ image.srcset = sizes.map(width => `/images/studio-hero-${variant}${width}.webp ${width}w`).join(', ');
+ image.src = `/images/studio-hero-${variant}1920.webp`;
+}
 const themeButton = document.querySelector('.theme-toggle');
 function updateThemeLabel() {
  const dark = document.documentElement.dataset.theme === 'dark';
@@ -8,9 +17,7 @@ function applyTheme(dark, remember = false) {
  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
  const hero = document.querySelector('.studio-hero-photo');
  if (hero) {
-  const variant = dark ? 'moonlight-' : '';
-  hero.srcset = [960, 1920, 3840, 6880].map(width => `/images/studio-hero-${variant}${width}.webp ${width}w`).join(', ');
-  hero.src = `/images/studio-hero-${variant}1920.webp`;
+  setHeroScene(hero, dark);
  }
 
  themeButton.setAttribute('aria-pressed', String(dark));
@@ -26,11 +33,9 @@ async function transitionTheme() {
  themeButton.disabled = true;
  try {
   // Decode the other scene before capturing the visual transition.
-  const preview = new Image();
-  preview.sizes = '100vw';
-  const variant = dark ? 'moonlight-' : '';
-  preview.srcset = [960, 1920, 3840, 6880].map(width => `/images/studio-hero-${variant}${width}.webp ${width}w`).join(', ');
-  preview.src = `/images/studio-hero-${variant}1920.webp`;
+  const picture = document.querySelector('.studio-hero-photo')?.closest('picture')?.cloneNode(true);
+  const preview = picture?.querySelector('img') || new Image();
+  setHeroScene(preview, dark);
   await Promise.race([preview.decode().catch(() => {}), new Promise(resolve => setTimeout(resolve, 2000))]);
   if (document.startViewTransition) {
    const transition = document.startViewTransition(() => applyTheme(dark, true));

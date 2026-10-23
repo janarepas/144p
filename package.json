@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "clean-css": "^5.3.3",
-    "playwright": "1.56.1"
+    "playwright": "1.56.1",
+    "purgecss": "^8.0.0"
   }
 }

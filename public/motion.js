@@ -1,19 +1,25 @@
-import Lenis from './vendor/lenis-1.3.27.mjs';
 
 const root = document.documentElement;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const targets = [...document.querySelectorAll('.studio-section-heading, .studio-intro-columns, .studio-team article, .studio-service, .support-copy, .studio-benefits li, .studio-contact .studio-wrap')];
 let lenis;
 let observer;
+let motionVersion = 0;
 
 function setupMotion() {
+ const version = ++motionVersion;
  lenis?.destroy();
  observer?.disconnect();
  targets.forEach(element => element.removeAttribute('data-reveal'));
  root.removeAttribute('data-motion');
  if (reducedMotion.matches) return;
  // Same smoothing as jrepas.hu; retain native touch scrolling on phones.
- lenis = new Lenis({ autoRaf: true, lerp: 0.1, smoothWheel: true, syncTouch: false, anchors: true });
+ if (window.matchMedia('(pointer: fine)').matches) {
+  import('./vendor/lenis-1.3.27.mjs').then(({ default: Lenis }) => {
+   if (version !== motionVersion || reducedMotion.matches) return;
+   lenis = new Lenis({ autoRaf: true, lerp: 0.1, smoothWheel: true, syncTouch: false, anchors: true });
+  }).catch(() => { /* Native scrolling remains available. */ });
+ }
  root.setAttribute('data-motion', 'true');
  if (!('IntersectionObserver' in window)) return;
  observer = new IntersectionObserver(entries => {
@@ -23,8 +29,9 @@ function setupMotion() {
    observer.unobserve(entry.target);
   }
  }, { rootMargin: '0px 0px 40px 0px', threshold: 0.04 });
- targets.forEach(element => {
-  if (element.getBoundingClientRect().top < innerHeight) return;
+ // Measure all targets before changing styles, avoiding repeated forced layouts.
+ const pending = targets.filter(element => element.getBoundingClientRect().top >= innerHeight);
+ pending.forEach(element => {
   element.setAttribute('data-reveal', 'pending');
   observer.observe(element);
  });

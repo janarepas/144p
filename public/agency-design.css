@@ -196,7 +196,7 @@ html.lenis,html.lenis body{height:auto}
 .lenis.lenis-stopped{overflow:hidden}
 .lenis.lenis-smooth.lenis-scrolling iframe{pointer-events:none}
 /* Gradual first-screen entrance. Content stays visible if scripting is unavailable. */
-@keyframes studio-enter{from{opacity:0;transform:translateY(14px);filter:blur(3px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes studio-enter{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 html[data-motion=true] .studio-hero-content>*{animation:studio-enter .75s cubic-bezier(.2,.7,.2,1) both}
 html[data-motion=true] .studio-hero-content>:nth-child(2){animation-delay:.08s}
 html[data-motion=true] .studio-hero-content>:nth-child(3){animation-delay:.16s}
