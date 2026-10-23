@@ -72,7 +72,11 @@ function setLanguage(language, remember = false) {
  document.querySelectorAll('[data-lang]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.lang === lang)));
  document.title = lang === 'hu' ? '144p Group | Kreatív tervező- és grafikai stúdió' : '144p Group | Creative Design & Production Studio';
  document.querySelector('meta[name="description"]').content = lang === 'hu' ? 'Két tapasztalt tervező. Egy megbízható kreatív partner. Grafikai tervezés, digitális kreatívok, nyomtatott anyagok és gyártásra kész grafika.' : 'Two experienced designers. One reliable creative production partner. Graphic design, digital marketing assets, print design, and production-ready artwork.';
- document.querySelector('.brand').setAttribute('aria-label', lang === 'hu' ? '144p Group kezdőlap' : '144p Group home');
+ const description = document.querySelector('meta[name="description"]').content;
+ for (const selector of ['meta[property="og:title"]', 'meta[name="twitter:title"]']) document.querySelector(selector).content = document.title;
+ for (const selector of ['meta[property="og:description"]', 'meta[name="twitter:description"]']) document.querySelector(selector).content = description;
+ document.querySelector('meta[property="og:locale"]').content = lang === 'hu' ? 'hu_HU' : 'en_US';
+ document.querySelector('.brand').setAttribute('aria-label', `144p Group — Low resolution. High standards. — ${lang === 'hu' ? 'kezdőlap' : 'home'}`);
  document.querySelector('.site-header nav').setAttribute('aria-label', lang === 'hu' ? 'Főmenü' : 'Main navigation');
  document.querySelector('.agency-ribbon').setAttribute('aria-label', lang === 'hu' ? 'Szakterületeink' : 'Our expertise');
  updateThemeLabel();renderArrows();

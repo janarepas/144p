@@ -1,0 +1,46 @@
+name: Browser tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Verify CSS build
+        run: |
+          npm run build
+          git diff --exit-code -- public
+      - name: Start local website
+        shell: bash
+        run: |
+          npm start > server.log 2>&1 &
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:3000/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat server.log
+          exit 1
+      - name: Run browser tests
+        shell: bash
+        run: npm test 2>&1 | tee browser-tests.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-test-logs
+          path: |
+            browser-tests.log
+            server.log
+          if-no-files-found: ignore
+          retention-days: 7

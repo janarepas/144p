@@ -2,7 +2,7 @@ import translations from '../public/translations-data.json';
 
 export async function onRequest(context) {
  const response = await context.next();
- if (!response.headers.get('content-type')?.includes('text/html')) return response;
+ if (response.status !== 200 || !response.headers.get('content-type')?.includes('text/html')) return response;
  const country = context.request.cf?.country || '';
  const savedLanguage = context.request.headers.get('Cookie')?.match(/(?:^|;\s*)144p-language=(hu|en)(?:;|$)/)?.[1];
  const language = savedLanguage || (country === 'HU' ? 'hu' : 'en');

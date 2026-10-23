@@ -135,7 +135,21 @@ A helyi indításhoz és a CSS-buildhez nincs szükség titkos környezeti vált
 - Frissítés után is maradjon meg a kézzel választott nyelv és téma.
 - Ellenőrizd a mozgáscsökkentett megjelenést és a képek betöltését.
 
-Az `npm test` a Node.js tesztfuttatóját indítja; a repó jelenleg nem tartalmaz külön automatizált tesztcsomagot. A korábbi mobilos Lighthouse-mérés és az optimalizálások összefoglalója a [mérési jegyzetben](docs/optimization-review.md) található. A pontszámok az ott rögzített verzióra és mérési környezetre vonatkoznak.
+Az `npm test` hét valódi Playwright böngészős tesztet futtat: runtime, SEO és 404, UX és mobilmenü, mozgáscsökkentés, GYIK, 18 szélességes HU/EN világos/sötét méretellenőrzés, valamint JavaScript nélküli használat.
+
+```sh
+npm ci
+npx playwright install chromium
+npm start
+# Másik terminálban:
+npm test
+```
+
+A Playwright saját, verzióhoz illesztett Chromiumát használjuk, rögzített rendszerútvonal nélkül. Linuxon a rendszerfüggőségekhez: `npx playwright install --with-deps chromium`. Másik böngésző a `CHROMIUM_EXECUTABLE_PATH`, másik tesztcím a `TEST_BASE_URL` változóval adható meg. Az egyes csomagok külön is futnak: `npm run test:runtime`, `test:seo`, `test:ux`, `test:motion`, `test:faq`, `test:sizing`. Az `npm run test:all` az `npm test` megfelelője.
+
+A GitHub Actions pull requestnél és a `main` frissítésekor telepíti a Chromiumot, ellenőrzi a CSS-buildet, elindítja a helyi szervert, futtatja a teszteket és menti a naplókat. A helyi teszt nem helyettesíti a Cloudflare DNS és éles HTTP-státuszok ellenőrzését.
+
+A `public/404.html` saját, kétnyelvű, `noindex` hibaoldal. A Cloudflare Pages és a helyi szerver a nem létező útvonalakra 404-et ad; a nyelvi middleware az ilyen hibaválaszokat nem írja át. A nyelvváltás a lapcímmel együtt az Open Graph és Twitter címet, leírást és locale-adatokat is frissíti. Az Adobe-stíluslap nem blokkolja az első megjelenést; JavaScript nélkül a noscript hivatkozás tölti be. A korábbi mobilos Lighthouse-mérés és az optimalizálások összefoglalója a [mérési jegyzetben](docs/optimization-review.md) található. A pontszámok az ott rögzített verzióra és mérési környezetre vonatkoznak.
 
 ## Felhasználás
 

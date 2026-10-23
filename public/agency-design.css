@@ -501,7 +501,7 @@ html[data-theme=dark] footer .footer-logo .footer-logo-dark{opacity:.52!importan
 /* Keep the studio introduction's line lengths visually balanced. */
 .studio-intro-columns p{text-wrap:balance}
 /* The studio slogan stays with the header mark in both languages and themes. */
-.site-header .brand-tagline{display:block;width:max-content;margin-top:5px;color:var(--muted);font:500 8px/1.3 'DM Sans',Arial,sans-serif;letter-spacing:.015em;white-space:nowrap}
+.site-header .brand-tagline{display:block;width:100%;margin-top:5px;color:var(--muted);font:500 8px/1.3 'DM Sans',Arial,sans-serif;letter-spacing:.015em;white-space:normal}
 @media(max-width:1000px){.site-header .brand-tagline{font-size:6.5px;margin-top:4px}}
 /* Occasional reflected light, clipped to the footer logo itself. */
 html[data-theme=dark] footer .footer-logo{position:relative;display:inline-block}
