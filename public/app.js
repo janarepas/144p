@@ -124,3 +124,29 @@ if (footerMark && 'IntersectionObserver' in window) {
  }, { threshold: .5 });
  markObserver.observe(footerMark);
 }
+
+// Keep native details as the no-JavaScript fallback, adding smooth reversible motion.
+for (const item of document.querySelectorAll('.studio-faq details')) {
+ const summary = item.querySelector('summary');
+ let animation;
+ let expanded = item.open;
+ summary.addEventListener('click', event => {
+  if (!item.animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  event.preventDefault();
+  const startHeight = item.getBoundingClientRect().height;
+  expanded = animation ? !expanded : !item.open;
+  animation?.cancel();
+  item.style.height = '';
+  item.open = true;
+  const endHeight = expanded ? item.getBoundingClientRect().height : summary.getBoundingClientRect().height + parseFloat(getComputedStyle(item).borderBottomWidth);
+  item.style.overflow = 'hidden';
+  animation = item.animate([{ height: `${startHeight}px` }, { height: `${endHeight}px` }], { duration: 320, easing: 'cubic-bezier(.22,1,.36,1)' });
+  const current = animation;
+  animation.onfinish = () => {
+   if (animation !== current) return;
+   item.open = expanded;
+   item.style.overflow = '';
+   animation = undefined;
+  };
+ });
+}

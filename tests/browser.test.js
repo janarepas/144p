@@ -107,3 +107,23 @@ run('no JavaScript: readable content, FAQ and homepage recovery', async browser 
  assert.equal((await page.goto(base+'/missing-nojs')).status(),404);
  await page.locator('a[href="/"]').first().click();assert.ok(await page.locator('.studio-hero').isVisible());
 });
+run('FAQ: animated opening, closing and rapid reversal on mobile and desktop', async browser => {
+ for (const width of [390,1440]) {
+  const page=await browser.newPage({viewport:{width,height:900}});
+  await page.goto(base);
+  const item=page.locator('.studio-faq details').first();
+  const summary=item.locator('summary');
+  await summary.click();
+  await page.waitForFunction(()=>{const e=document.querySelector('.studio-faq details');return e.open&&!e.style.overflow;});
+  assert.ok(await item.locator('p').isVisible());
+  await summary.press('Enter');
+  await page.waitForFunction(()=>!document.querySelector('.studio-faq details').open);
+  await summary.click();
+  await summary.click();
+  await page.waitForFunction(()=>{const e=document.querySelector('.studio-faq details');return !e.open&&!e.style.overflow;});
+  await summary.click();
+  await page.waitForFunction(()=>{const e=document.querySelector('.studio-faq details');return e.open&&!e.style.overflow;});
+  assert.equal(await item.evaluate(e=>e.style.height),'');
+  await page.close();
+ }
+});
