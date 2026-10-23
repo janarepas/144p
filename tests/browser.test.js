@@ -79,7 +79,9 @@ run('FAQ: native mouse and keyboard disclosure in both languages', async browser
  }
 });
 run('sizing: 18 widths, both languages and both themes', async browser => {
- const page=await browser.newPage({reducedMotion:'reduce'});await page.goto(base);await page.evaluate(()=>document.fonts.ready);
+ const page=await browser.newPage({reducedMotion:'reduce'});
+ await page.route(/https:\/\/[^/]*typekit\.net\//, route=>route.abort());
+ await page.goto(base);await page.evaluate(()=>document.fonts.ready);
  for(const lang of ['hu','en']) {
   await page.locator(`[data-lang="${lang}"]`).click();
   for(const theme of ['light','dark']) {
